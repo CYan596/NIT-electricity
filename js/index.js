@@ -11,7 +11,7 @@ for (let i = 0; i < clickableSecArr.length; i++) {
   clickableSecArr[i].onclick = function () {
     // render(i)
     // alert('1')
-  $('#p-page0').css('transform', 'translateX(1px)')
+  $('#p-page0').css('transform', 'translateX(0)')
   }
 }
 // E 可点击框拉取面板
