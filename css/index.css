@@ -1,0 +1,365 @@
+/*B*/
+
+/*E*/
+body,html{
+	/* height: 1000px; */
+	font-family: STXihei, "Microsoft YaHei";
+	font-size: 16px;
+}
+pre{
+	word-wrap: normal;
+}
+/*B 第一屏*/
+#page1{
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0; 
+	bottom: 0;
+	/* background-color: red; */
+	padding-bottom: 50px;
+	overflow-y: scroll;
+}
+#page1::-webkit-scrollbar {display:none}
+#p1-header .wrap{
+	position: absolute;
+	height: 45%;
+	width: 100%;
+	z-index: -2;
+	background-color: #e7f2fd;
+}
+#p1-header{
+	width: 100%;
+	height: 45%;
+  	/* background-color: #20293a; */
+  	font-size: 16px;
+  	font-weight: 300;
+  	line-height: 1.5;
+  	color: #444;
+	/* background-color: #55a2f0; */
+	/* z-index: -1; */
+}
+#p1-title{
+	display: inline-block;
+	position: absolute;
+	top: 30px;
+	left: 20px;
+	color: #fff;
+	font-size: 18px;
+	/* font-weight: bold; */
+	/* letter-spacing:2px; */
+	margin: 0;
+}
+#p1-animation{
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 200px;
+	height: 200px;
+	background-color: #e7f2fd;
+	
+	font-family: STXihei, "Microsoft YaHei";
+	color: #555;
+	border-radius: 50%;
+	font-size: 36px;
+	font-weight: bold;
+	line-height: 1.5;
+	/* letter-spacing:4px; */
+	text-align: center;
+	/* z-index: 2; */
+	/* animation: text 10s ease infinite; */
+}
+#p1-animation::after {
+  	box-sizing: border-box;
+	outline: none;
+	position: absolute;
+	content: "";
+	top: -5%;
+	left: -5%;
+	right: 0;
+	z-index: -1;
+	height: 100%;
+	width: 100%;
+	margin: 0 auto;
+	transform: scale(0.85);
+	filter: blur(40px);
+	color: #444;
+	background: linear-gradient(270deg, #00fcbd, #7400f9);
+	background-size: 150% 150%;
+	border-radius: 50%;
+	animation: glowmation 10s linear infinite;
+  }
+#p1-animation .wordart1 {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 50px;
+	font-size: 18px;
+}
+#p1-animation .wordart2 {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 30px;
+	font-size: 30px;
+	opacity: 0.8;
+}
+#p1-animation .wordart3 {
+	position: absolute;
+	top: 22%;
+	left: 0;
+	right: 0;
+	font-size: 16px;
+	/* opacity: 0.1; */
+}
+#p1-animation .wordart4 {
+	letter-spacing: 4px;
+	font-size: 38px;
+}
+/*B 下部数据展示*/
+.p-title{
+	display: flex;
+	justify-content: flex-start;
+	-ms-align-items: center;
+	align-items: center;
+	box-sizing: border-box;
+	padding-left: 20px;
+	width: 100%;
+	height: 40px;
+	background-color: #f6f6f6;
+	color: #a2a2a2;
+}
+.p-title span{
+	font-size: 18px;
+	font-weight: lighter;
+	height: 40px;
+	line-height: 40px;
+
+}
+.p-title span:nth-of-type(1){
+	height: 25px;
+	width: 25px;
+	margin-right: 10px;
+	font-size: 18px;
+	color: #fff;
+	background-color: #4b79a4;
+	text-align: center;
+	vertical-align: center;
+	border-radius: 100%;
+	line-height: 25px; 
+	/* border: 10px solid #fff; */
+}
+.section-container .p-section:last-child{
+	box-shadow:none;
+}
+.section-container .p-section-clickable:last-child{
+	box-shadow:none ;
+}
+.section-container .fa-angle-right{
+	margin-left: 10px;
+	/* color: #c1c1c1; */
+	font-size: 24px;
+}
+.section-container span{
+	/* line-height: 40px; */
+	/* vertical-align: center; */
+}
+.p-section , .p-section-clickable{
+	box-sizing: border-box;
+	padding: 0 20px;
+	width: 100%;
+	height: 40px;
+	box-shadow:20px 1px 1px rgba(0,0,0,.2);
+}
+.p-section span:nth-of-type(1) , .p-section-clickable span:nth-of-type(1){
+	/* color:#3e3e3e; */
+}
+.p-section span:nth-of-type(2) , .p-section-clickable span:nth-of-type(2){
+	color:#c1c1c1;
+}
+.p-section{
+	display: flex;
+	justify-content: space-between;
+	-ms-align-items: center;
+	align-items: center;
+}
+.p-section-clickable{
+	display: flex;
+	justify-content: space-between;
+	-ms-align-items: center;
+	align-items: center;
+}
+.p-section-clickable .p-section-inner{
+	color: #c1c1c1 ;
+	display: flex;
+	justify-content: space-between;
+	-ms-align-items: center;
+	align-items: center;
+}
+/*E 下部数据展示*/
+
+/*E 第一屏*/
+
+/*B 底部导航*/
+#main-bar{
+	position: fixed;
+	display: flex;
+	justify-content: space-around;
+    align-items: center;
+	height: 50px;
+	width: 100%;
+	bottom: 0;
+	color: #9a9a9a;
+	background-color: #f6f7f8;
+	/* background-color: red; */
+	box-shadow:0px 1px 4px rgba(0,0,0,.8);
+	z-index: 99;
+}
+#main-bar .wrap{
+	z-index: 1;
+}
+.main-bar-section{
+	display: flex;
+	flex-direction: column;
+ 	justify-content: center;
+	height: 100%;
+	width: 100%;
+	font-size: 14px;
+}
+.main-bar-section .fa{
+	display: inline-block;
+	font-size: 18px !important;
+	margin-top: 8px;
+	margin-bottom: 8px;
+}
+/*E 底部导航*/
+
+/*B 第二屏*/
+#page2{
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0; 
+	bottom: 0;
+	background-color: #fff;
+	padding-bottom: 50px;
+	overflow-y: scroll;
+}
+.p2-inform{
+	width: 90%;
+}
+/*E 第二屏*/
+
+/*B 第三屏*/
+#page3{
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0; 
+	bottom: 0;
+	background-color: #fff;
+	padding-bottom: 50px;
+	overflow-y: scroll;
+}
+/*E 第三屏*/
+
+/*B 工具类*/
+.wrap{
+	width: 100%;
+	height: 100%;
+}
+.center{
+	display: flex;
+	justify-content: center;
+	-ms-align-items: center;
+	align-items: center;
+}
+.top{
+	display: block !important;
+	z-index: 9;
+}
+.wordart1 {
+
+}
+.wordart2 {
+
+}
+.wordart3 {
+
+}
+.wordart4 {
+
+}
+.box{
+
+}
+/*E 工具类*/
+
+/*B 动画*/
+
+@keyframes glowmation {
+  0% {
+    top: -3%;
+    left: -3%;
+    background-position: 0% 50%;
+    background-size: 150% 150%;
+  }
+  12.5% {
+    top: -3%;
+    left: 0;
+    background-size: 70% 30%;
+  }
+  25% {
+    top: -3%;
+    left: 3%;
+    background-size: 100% 50%;
+  }
+  37.5% {
+    top: 0;
+    left: 3%;
+    background-size: 70% 30%;
+  }
+  50% {
+    top: 3%;
+    left: 3%;
+    background-position: 100% 50%;
+    background-size: 30% 30%;
+  }
+  62.5% {
+    top: 3%;
+    left: 0;
+    background-size: 30% 70%;
+  }
+  75% {
+    top: 3%;
+    left: -3%;
+    background-size: 50% 100%;
+  }
+  87.5% {
+    top: 0;
+    left: -3%;
+    background-size: 30% 70%;
+  }
+  100% {
+    top: -3%;
+    left: -3%;
+    background-position: 0% 50%;
+    background-size: 150% 150%;
+  }
+}
+/* @keyframes text {
+  0% {
+    color: #7400f9;
+  }
+  50% {
+    color: #00fcbd;
+  }
+  100% {
+    color: #7400f9;
+  }
+} */
+
+/*E 动画*/
