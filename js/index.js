@@ -1,5 +1,8 @@
 // B
-
+$('.close-btn')[0].onclick = function () {
+  $('.close-btn').parents('#p-page0').css('transform', 'translateX(100%)')
+  // alert('1')
+}
 // E
 var pageArr = $('.page')
 var barArr = $('.main-bar-section')
@@ -11,7 +14,7 @@ for (let i = 0; i < clickableSecArr.length; i++) {
   clickableSecArr[i].onclick = function () {
     // render(i)
     // alert('1')
-  $('#p-page0').css('transform', 'translateX(0)')
+    $('#p-page0').css('transform', 'translateX(0)')
   }
 }
 // E 可点击框拉取面板
