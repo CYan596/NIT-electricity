@@ -3,7 +3,18 @@
 // E
 var pageArr = $('.page')
 var barArr = $('.main-bar-section')
-console.log(barArr)
+var clickableSecArr = $('.p-section-clickable')
+console.log(clickableSecArr)
+
+// B 可点击框拉取面板
+for (let i = 0; i < clickableSecArr.length; i++) {
+  clickableSecArr[i].onclick = function () {
+    // render(i)
+    // alert('1')
+  $('#p-page0').css('transform', 'translateX(1px)')
+  }
+}
+// E 可点击框拉取面板
 
 // B tab栏点击切换
 
@@ -24,6 +35,10 @@ barArr[2].onclick = function () {
 function switchScreen (i) {
   $(pageArr[i]).addClass('top').siblings().removeClass('top')
   $(barArr[i]).addClass('active').siblings().removeClass('active')
+}
+
+function render (i) {
+  $('p-page' + 'i').css('transform', 'translateX(0)')
 }
 
 
