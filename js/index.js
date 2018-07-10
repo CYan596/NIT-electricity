@@ -52,110 +52,129 @@ var nameEl = selectArr.get(0)
 
 var data1 = [
   {
-    text: '1栋',
+    text: '1A',
     value: 1
   }, {
-    text: '2栋',
+    text: '1B',
+    value: 1
+  }, {
+    text: '2A',
+    value: 1
+  }, {
+    text: '2B',
     value: 1
   },
   {
-    text: '3栋',
+    text: '3A',
+    value: 1
+  },{
+    text: '3B',
     value: 1
   },
   {
-    text: '4栋',
+    text: '4A',
+    value: 1
+  },{
+    text: '4B',
     value: 1
   },
   {
-    text: '5栋',
+    text: '5A',
+    value: 1
+  },{
+    text: '5B',
     value: 1
   },
   {
-    text: '6栋',
+    text: '6A',
+    value: 1
+  },{
+    text: '6B',
     value: 1
   },
   {
-    text: '7栋',
+    text: '7A',
+    value: 1
+  },{
+    text: '7B',
     value: 1
   },
   {
-    text: '8栋',
+    text: '8A',
+    value: 1
+  },{
+    text: '8B',
     value: 1
   },
   {
-    text: '9栋',
+    text: '9A',
+    value: 1
+  },{
+    text: '9B',
     value: 1
   },
   {
-    text: '10栋',
+    text: '10A',
+    value: 1
+  },{
+    text: '10B',
     value: 1
   },
   {
-    text: '11栋',
+    text: '11A',
+    value: 1
+  },{
+    text: '11B',
     value: 1
   },
   {
-    text: '11栋',
+    text: '12A',
+    value: 1
+  },{
+    text: '12B',
     value: 1
   },
   {
-    text: '13栋',
+    text: '13A',
+    value: 1
+  },{
+    text: '13B',
     value: 1
   },
   {
-    text: '14栋',
+    text: '14A',
+    value: 1
+  },
+  {
+    text: '14B',
     value: 1
   }
 ];
 
 var data2 = [
   {
-    text: 'A1层',
+    text: '1层',
     value: 1
   },
   {
-    text: 'A2层',
+    text: '2层',
     value: 2
   },
   {
-    text: 'A3层',
+    text: '3层',
     value: 3
   },
   {
-    text: 'A4层',
+    text: '4层',
     value: 4
   },
   {
-    text: 'A5层',
+    text: '5层',
     value: 5
   },
   {
-    text: 'A6层',
+    text: '6层',
     value: 6
-  },
-  {
-    text: 'B1层',
-    value: 7
-  },
-  {
-    text: 'B2层',
-    value: 8
-  },
-  {
-    text: 'B3层',
-    value: 9
-  },
-  {
-    text: 'B4层',
-    value: 10
-  },
-  {
-    text: 'B5层',
-    value: 11
-  },
-  {
-    text: 'B6层',
-    value: 12
   }
 ];
 
