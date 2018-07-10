@@ -124,7 +124,7 @@ pre{
 	right: 0;
 	bottom: -20px;
 	font-size: 75px;
-	opacity: 0.8;
+	/* opacity: 0.8; */
 }
 #p1-animation .wordart3 {
 	position: absolute;
@@ -167,7 +167,7 @@ pre{
 	border-radius: 12px;
 	box-shadow:2px 3px 6px rgba(0,0,0,.1);
 	overflow: hidden;
-	opacity: 0.85;
+	opacity: 0.9;
 }
 
 .section-container .fa-angle-right{
@@ -412,7 +412,7 @@ pre{
 }
  @keyframes text {
   
-  0% {
+/*   0% {
   	opacity: 1;
   }
   50%{
@@ -421,6 +421,6 @@ pre{
   90% {
   	opacity: 1;
   }
-} 
+}  */
 
 /*E 动画*/
