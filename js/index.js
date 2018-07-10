@@ -245,7 +245,7 @@ var data3 = [
 
 var picker = new Picker({
   data: [data1, data2, data3],
-  selectedIndex: [0, 1, 2],
+  selectedIndex: [0, 0, 0],
   title: '选择寝室'
 });
 
@@ -254,13 +254,13 @@ picker.on('picker.select', function (selectedVal, selectedIndex) {
 })
 
 picker.on('picker.change', function (index, selectedIndex) {
-  console.log(index);
-  console.log(selectedIndex);
+  // console.log(index);
+  // console.log(selectedIndex);
 });
 
 picker.on('picker.valuechange', function (selectedVal, selectedIndex) {
-  console.log(selectedVal);
-  console.log(selectedIndex);
+  // console.log(selectedVal);
+  // console.log(selectedIndex);
 });
 
 nameEl.addEventListener('click', function () {
