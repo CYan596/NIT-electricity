@@ -10,14 +10,21 @@ var clickableSecArr = $('.p-section-clickable')
 // console.log(clickableSecArr)
 
 // B 可点击框拉取面板
-// for (let i = 0; i < clickableSecArr.length; i++) {
-//   clickableSecArr[i].onclick = function () {
-//     render(i)
-//     alert('1')
-//     $('#p-page0').css('transform', 'translateY(0)')
-//   }
-// }
+for (let i = 1; i < clickableSecArr.length; i++) {
+  clickableSecArr[i].onclick = function () {
+    render(i)
+    $('#p-page0').css('transform', 'translateY(0)')
+  }
+}
 // E 可点击框拉取面板
+
+// B 拉取缴费详情面板
+
+$('.close-btn')[0].onclick = function () {
+  $('.close-btn').parents('#p-page0').css('transform', 'translateY(100%)')
+}
+
+// E 拉取缴费详情面板
 
 // B tab栏点击切换
 
@@ -147,6 +154,14 @@ var data1 = [
   },
   {
     text: '14B',
+    value: 1
+  },
+  {
+    text: '15A',
+    value: 1
+  },
+  {
+    text: '15B',
     value: 1
   }
 ];
