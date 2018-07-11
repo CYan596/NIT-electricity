@@ -51,7 +51,24 @@ function render (i) {
   $('p-page' + 'i').css('transform', 'translateX(0)')
 }
 
-// 测试
+// B 寝室选择
+// 寝室选择选项数组生成
+var data3 = []
+for (var i = 1; i <= 29; i++) {
+  if (i < 10) {
+    data3.push({
+      text: '0' + i + '寝',
+      value: 1
+    })
+  } else {
+    data3.push({
+      text: i + '寝',
+      value: 1
+    })
+  }
+}
+console.log(data3)
+
 // var nameEl = clickableSecArr[0]
 // var nameEl = document.getElementById('select')
 // var nameEl = $('#select')[0]
@@ -193,71 +210,6 @@ var data2 = [
   }
 ];
 
-var data3 = [
-  {
-    text: '01寝',
-    value: 1
-  }, {
-    text: '02寝',
-    value: 2
-  },
-  {
-    text: '03寝',
-    value: 3
-  }, {
-    text: '04寝',
-    value: 4
-  },
-  {
-    text: '05寝',
-    value: 4
-  },
-  {
-    text: '06寝',
-    value: 4
-  },
-  {
-    text: '07寝',
-    value: 4
-  },
-  {
-    text: '08寝',
-    value: 4
-  },
-  {
-    text: '09寝',
-    value: 4
-  },
-  {
-    text: '10寝',
-    value: 4
-  },
-  {
-    text: '11寝',
-    value: 4
-  },
-  {
-    text: '12寝',
-    value: 4
-  },
-  {
-    text: '13寝',
-    value: 4
-  },
-  {
-    text: '14寝',
-    value: 4
-  },
-  {
-    text: '15寝',
-    value: 4
-  },
-  {
-    text: '16寝',
-    value: 4
-  }
-];
-
 var picker = new Picker({
   data: [data1, data2, data3],
   selectedIndex: [0, 0, 0],
@@ -281,3 +233,42 @@ picker.on('picker.valuechange', function (selectedVal, selectedIndex) {
 nameEl.addEventListener('click', function () {
   picker.show();
 });
+
+// E 寝室选择
+
+// B 记录页面 渲染
+
+var testData = [
+  {
+    'eid': '6',
+    'fee': '41.43018',
+    'roomName': '5A207',
+    'date': '2018/7/7 21:40'
+  }]
+
+// 基于准备好的dom，初始化echarts实例
+var myChart = echarts.init(document.getElementById('p2-presentation'))
+
+// 指定图表的配置项和数据
+var option = {
+  title: {
+    text: '测试数据'
+  },
+  tooltip: {},
+  legend: {
+    data: ['销量']
+  },
+  xAxis: {
+    data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子']
+  }, 
+  yAxis: {},
+  series: [{
+    name: '销量',
+    type: 'bar',
+    data: [5, 20, 36, 10, 10, 20]
+  }]
+}
+// 使用刚指定的配置项和数据显示图表。
+myChart.setOption(option)
+
+// E 记录页面 渲染
