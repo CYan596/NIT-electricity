@@ -308,6 +308,12 @@ pre{
 	color: #333;
 	letter-spacing: 3px;
 }
+#page3 #config{
+	height: 40px;
+	color: #fff;
+	letter-spacing: 2px;
+	background-color: #59c996;
+}
 #login .wordart1{
 	display: block;
 	color: #333;
@@ -479,4 +485,6 @@ pre{
 }  */
 
 /*E 动画*/
+
+//测试
 
