@@ -17,12 +17,14 @@ for (let i = 1; i < clickableSecArr.length; i++) {
     render(i)
     $('#p-page' + i).css('transform', 'translateY(0)')
   }
-  
+  if ($('.close-btn')[i-1] !== undefined) {
+    $('.close-btn')[i-1].onclick = function () {
+      $('.close-btn').parents('#p-page' + i).css('transform', 'translateY(100%)')
+    }
+  }
 }
 
-$('.close-btn')[0].onclick = function () {
-    $('.close-btn').parents('#p-page' + 1).css('transform', 'translateY(100%)')
-}
+
 // E 可点击框拉取面板
 
 // B 面板内通用组件

@@ -186,7 +186,7 @@ pre{
 .p-section span:nth-of-type(1) , .p-section-clickable span:nth-of-type(1){
 }
 .p-section span:nth-of-type(2) , .p-section-clickable span:nth-of-type(2){
-	color: #cfcfd3;
+	color: #7F7F7F;
 }
 .p-section{
 	display: flex;
@@ -285,7 +285,7 @@ pre{
 #page3{
 	display: none;
 	position: absolute;
-	padding: 16px;
+	/* padding: 16px; */
 	top: 0;
 	left: 0;
 	right: 0; 
@@ -294,13 +294,33 @@ pre{
 	padding-bottom: 50px;
 	overflow-y: scroll;
 }
+#page3 .section-container{
+	margin-top: 10px;
+	border-radius: 0;
+	opacity: 1;
+}
 #page3 #login{
-	height: 50px;
+	display: flex;
+	box-sizing: border-box;
+	padding: 0 4% 0 4%;
+	justify-content: space-between;
+	height: 85px;
 	color: #333;
-	/* font-weight: bold; */
 	letter-spacing: 3px;
 }
-#page3 #login:active{
+#login .wordart1{
+	display: block;
+	color: #333;
+	font-size: 14px;
+	margin-bottom: 4px;
+}
+#login .wordart2{
+	font-size: 12px;
+}
+#login .fa-angle-right{
+	color: #999;
+}
+.p-section-clickable:active{
 	background-color: #efefef;
     -webkit-tap-highlight-color: transparent;
 }
@@ -387,6 +407,9 @@ pre{
 	opacity: 0.9;
 	background-color: #333;
 	z-index: -1;
+}
+#p-page2 .panel{
+	background-color: #eaeaea;
 }
 /*E 工具类*/
 
