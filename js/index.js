@@ -237,38 +237,62 @@ nameEl.addEventListener('click', function () {
 // E 寝室选择
 
 // B 记录页面 渲染
-
-var testData = [
-  {
-    'eid': '6',
-    'fee': '41.43018',
-    'roomName': '5A207',
-    'date': '2018/7/7 21:40'
-  }]
-
-// 基于准备好的dom，初始化echarts实例
-var myChart = echarts.init(document.getElementById('p2-presentation'))
-
-// 指定图表的配置项和数据
-var option = {
-  title: {
-    text: '测试数据'
-  },
-  tooltip: {},
-  legend: {
-    data: ['销量']
-  },
-  xAxis: {
-    data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子']
-  }, 
-  yAxis: {},
-  series: [{
-    name: '销量',
-    type: 'bar',
-    data: [5, 20, 36, 10, 10, 20]
-  }]
+// 动态设置用电记录表宽高
+var presentationSizeObj = {
+  x: $('#page2').css('width'),
+  y: $('#page2').css('height')
 }
-// 使用刚指定的配置项和数据显示图表。
-myChart.setOption(option)
+$('#p2-presentation').css({'width': presentationSizeObj.x,'height': (parseInt(presentationSizeObj.y) - 1) + 'px' })
+// 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('p2-presentation'));
 
+        // 指定图表的配置项和数据
+        var option = {
+            title: {
+                text: '每日用电',
+                subtext: '以下是近一个月的每日用电记录(单位：元)',
+                left:'center',
+                textStyle: {
+                  fontSize: '18',
+                  color: '#333'
+                },
+                padding: [
+                    12,  // 上
+                    0, // 右
+                    0,  // 下
+                    0, // 左
+                ]
+                // backgroundColor: '#f00'
+            },
+            tooltip: {
+              show: true
+            },
+            legend: {
+                data:['当日电费']
+            },
+            xAxis: {
+               
+            },
+            yAxis: {
+            data: ["7-12","7-11","7-10","7-9","7-8","7-7","7-6","7-5","7-4","7-3","7-2","7-1","6-30"]
+            },
+            series: [{
+                // name: '当日电费',
+                type: 'bar',
+                data: [7.2, 14.2, 7.5, 6.3, 1.7, 12.2, 10, 7.7, 6.9, 13.9, 11.9, 3.9, 1.9],
+                barWidth: 15
+            }],
+            textStyle: {
+              color: 'rgba(3, 3, 3, 1)'
+        },
+        itemStyle: {
+          // 设置扇形的颜色
+          color: '#59c996',
+          // shadowBlur: 15,
+          shadowColor: 'rgba(0, 0, 0, 0.2)'
+      }
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
 // E 记录页面 渲染

@@ -260,8 +260,8 @@ pre{
 	overflow-y: scroll;
 }
 #p2-presentation{
-	width: 375px;
-	height: 500px;
+	/* width: 375px;
+	height: 500px; */
 }
 .p2-inform{
 	width: 90%;
