@@ -4,6 +4,7 @@ $(window).load(function () {
 // B
 
 // E
+
 var selectArr = $('.select')
 var pageArr = $('.page')
 var barArr = $('.main-bar-section')
@@ -14,18 +15,21 @@ var clickableSecArr = $('.p-section-clickable')
 for (let i = 1; i < clickableSecArr.length; i++) {
   clickableSecArr[i].onclick = function () {
     render(i)
-    $('#p-page0').css('transform', 'translateY(0)')
+    $('#p-page' + i).css('transform', 'translateY(0)')
   }
+  
+}
+
+$('.close-btn')[0].onclick = function () {
+    $('.close-btn').parents('#p-page' + 1).css('transform', 'translateY(100%)')
 }
 // E 可点击框拉取面板
 
-// B 拉取缴费详情面板
+// B 面板内通用组件
 
-$('.close-btn')[0].onclick = function () {
-  $('.close-btn').parents('#p-page0').css('transform', 'translateY(100%)')
-}
 
-// E 拉取缴费详情面板
+
+// E 面板内通用组件
 
 // B tab栏点击切换
 
@@ -35,6 +39,8 @@ barArr[0].onclick = function () {
 
 barArr[1].onclick = function () {
   switchScreen(1)
+
+  Recordrenderer()
 }
 
 barArr[2].onclick = function () {
@@ -238,7 +244,10 @@ nameEl.addEventListener('click', function () {
 // E 寝室选择
 
 // B 记录页面 渲染
-// 动态设置用电记录表宽高
+
+// 记录页面渲染函数
+function Recordrenderer () {
+  // 动态设置用电记录表宽高
 var presentationSizeObj = {
   x: $('#page2').css('width'),
   y: $('#page2').css('height')
@@ -288,9 +297,8 @@ $('#p2-presentation').css({'width': presentationSizeObj.x,'height': (parseInt(pr
         },
         itemStyle: {
           // 设置扇形的颜色
-          color: '#59c996',
+          color: '#59c996'
           // shadowBlur: 15,
-          shadowColor: 'rgba(0, 0, 0, 0.2)'
       }
         };
 
@@ -299,6 +307,8 @@ $('#p2-presentation').css({'width': presentationSizeObj.x,'height': (parseInt(pr
 // E 记录页面 渲染
 
 
+
+}
 
 })
 // E load
