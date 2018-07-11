@@ -205,6 +205,18 @@ pre{
 	height: 100%;
 	color: #59c996;
 }
+.p-section-clickable .select::after{
+	margin-left: 6px;
+	padding: 0 4px;
+	content: '切换';
+	color: #fff;
+	font-size: 12px;
+	font-weight: lighter;
+	line-height:21px;
+	vertical-align: center;
+	background-color: #59c996;
+	border-radius: 12px;
+}
 /*E 下部数据展示*/
 
 /*E 第一屏*/
@@ -431,3 +443,4 @@ pre{
 }  */
 
 /*E 动画*/
+

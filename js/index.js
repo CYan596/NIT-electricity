@@ -1,7 +1,8 @@
+// B load
+$(window).load(function () {
+
 // B
-// $('.close-btn')[0].onclick = function () {
-//   $('.close-btn').parents('#p-page0').css('transform', 'translateY(100%)')
-// }
+
 // E
 var selectArr = $('.select')
 var pageArr = $('.page')
@@ -296,3 +297,8 @@ $('#p2-presentation').css({'width': presentationSizeObj.x,'height': (parseInt(pr
         // 使用刚指定的配置项和数据显示图表。
         myChart.setOption(option);
 // E 记录页面 渲染
+
+
+
+})
+// E load
