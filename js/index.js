@@ -1,5 +1,5 @@
 // B load
-$(window).load(function () {
+$(window).ready(function () {
 
 // B
 
