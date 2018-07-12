@@ -1,0 +1,14 @@
+
+Hope you enjoy your new logo, here are the people that
+made your beautiful logo happen :)
+
+font name: Quicksand-Light
+font link: https://www.fontsquirrel.com/fonts/quicksand
+font author: Andrew Paglinawan
+font author site: http://andrewpaglinawan.com/
+
+icon designer: Juan Pablo Bravo
+icon designer link: /bravo
+        
+{"bg":"#ffffff","icon-gradient-0":"#006678","icon-gradient-1":"#4FA8FF","font":"#000000"}
+      

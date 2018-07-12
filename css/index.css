@@ -9,6 +9,7 @@ body,html{
 	right: 0;
 	top: 0;
 	bottom: 0;
+	color: #333;
 	font-family: "SF Pro SC","SF Pro Display","SF Pro Icons","PingFang SC","Helvetica Neue","Helvetica","Arial",sans-serif;
 	font-size: 16px !important;
 	font-weight: 400;
@@ -459,7 +460,7 @@ pre{
 	bottom: 15px;
 	background-color: #eee;
 	border-radius: 50%;
-	transform: translateX(-50%);
+	transform: translateX(-100%);
 	box-shadow:1px 1px 4px rgba(0,0,0,.5);
 }
 #p-page0 .mask{
@@ -473,9 +474,58 @@ pre{
 	background-color: #333;
 	z-index: -1;
 }
-#p-page2 .panel{
-	background-color: #eaeaea;
+
+/*B 登陆拉取*/
+#p-page2{
 }
+#p-page2 .panel{
+	box-sizing: border-box;
+	background-color: #eaeaea;
+	padding: 10px 16px;
+
+}
+.common-input{
+	box-sizing: border-box;
+	padding: 0 6px;
+	width: 100%;
+	height: 40px;
+	border: none;
+	font-size: 18px;
+	color: #d1d1d2;
+	border-radius: 6px;
+	box-shadow:1px 1px 2px rgba(0,0,0,.2) inset;
+}
+.common-input:focus{
+	 /* outline: 2px solid rgba(89,201,150,0.5); */
+	 outline: none;
+	 box-shadow: 0 0 0 2px rgba(89,201,150,0.5);;
+
+}
+.common-button{
+	margin-top: 10px;
+	height: 40px;
+	width: 100%;
+	color: #fff;
+	letter-spacing: 2px;
+	background-color: #59c996;
+	background: linear-gradient( #59c9a6, #59c996);
+	border-radius: 6px;
+	box-shadow:1px 1px 2px rgba(0,0,0,.2);
+}
+
+.common-button:active{
+	background:linear-gradient(to bottom, #34b895, #59c996);
+	-webkit-tap-highlight-color:transparent;
+	box-shadow:0 0 6px 0px rgba(0,0,0,.4) inset;
+}
+.common-message{
+	margin-top: 10px;
+	width: 100%;
+	color: #818181;
+	font-size: 14px;
+}
+/*E 登陆拉取*/
+
 /*E 工具类*/
 
 /*B 动画*/
