@@ -299,6 +299,9 @@ pre{
 	border-radius: 0;
 	opacity: 1;
 }
+#page3 .p-section-clickable{
+	overflow: visible;
+}
 #page3 #login{
 	display: flex;
 	box-sizing: border-box;
@@ -309,10 +312,21 @@ pre{
 	letter-spacing: 3px;
 }
 #page3 #config{
+	display: flex;
+	justify-content: space-between;
+	padding: 0 0 0 15px;
 	height: 40px;
 	color: #fff;
 	letter-spacing: 2px;
 	background-color: #59c996;
+}
+#page3 #config .button{
+	/* width: 50%; */
+	/* background-color: #fff; */
+}
+#page3 #config .button{
+	background-color: #fff;
+	border-radius: 0;
 }
 #login .wordart1{
 	display: block;

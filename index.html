@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="css/reset.css">
 	<!-- <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.min.css" type="text/css" charset="utf-8"/> -->
 	<link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/button.css">
 </head>
 <body>
 	<!-- B 第一页-->
@@ -102,10 +103,27 @@
 		</div>
 
 		<div class="section-container p-section-clickable" id="config">
-			<div class="wrap center">
-				<span>低电量警戒(已开启)</span>
+			<div class="center">
+				<span>低电量邮件提醒</span>
 			</div>
+
+			<span class="button-dropdown" data-buttons="dropdown">
+				    <button class="button button-rounded">
+				      设置 <i class="fa fa-caret-down"></i>
+				    </button>
+				 
+				    <ul class="button-dropdown-list">
+				      <li><a href="#">低限制</a></li>
+				      <li><a href="#">高限制</a></li>
+				      <li class="button-dropdown-divider">
+				        <a href="#">关闭</a>
+				      </li>
+				    </ul>
+		  		</span>
+
 		</div>
+
+		
 
 	</div>
 
@@ -161,6 +179,7 @@
 <script src="lib/jquery/jquery.js"></script>
 <script src="lib/picker.min.js"></script>
 <script src="js/index.js"></script>
+<script src="js/buttons.js"></script>
 
 
 </html>
