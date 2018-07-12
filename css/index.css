@@ -463,6 +463,10 @@ pre{
 	transform: translateX(-100%);
 	box-shadow:1px 1px 4px rgba(0,0,0,.5);
 }
+.panel .close-btn:active{
+	background-color: #59c996;
+	color: #fff;
+}
 #p-page0 .mask{
 	position: absolute;
 	top: 0;
