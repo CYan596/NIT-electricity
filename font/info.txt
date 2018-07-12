@@ -2,7 +2,7 @@
 Hope you enjoy your new logo, here are the people that
 made your beautiful logo happen :)
 
-font name: Quicksand-Light
+font name: Quicksand-Regular
 font link: https://www.fontsquirrel.com/fonts/quicksand
 font author: Andrew Paglinawan
 font author site: http://andrewpaglinawan.com/
