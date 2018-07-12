@@ -311,22 +311,61 @@ pre{
 	color: #333;
 	letter-spacing: 3px;
 }
-#page3 #config{
+#page3 .config{
 	display: flex;
 	justify-content: space-between;
-	padding: 0 0 0 15px;
-	height: 40px;
-	color: #fff;
+	padding: 0 15px 0 15px;
+	height: 60px;
 	letter-spacing: 2px;
-	background-color: #59c996;
+	/* background-color: #59c996; */
 }
-#page3 #config .button{
-	/* width: 50%; */
-	/* background-color: #fff; */
+#page3 .config .button-dropdown-list{
+	border-radius: 0;
 }
-#page3 #config .button{
+#page3 .config .button{
 	background-color: #fff;
 	border-radius: 0;
+}
+#page3 .config .wrap{
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	-ms-align-items: flex-start;
+	align-items: flex-start;	
+}
+#page3 .config .wrap span:nth-of-type(1) {
+	margin-bottom: 4px;
+	color: #333;
+}
+#page3 .config .wrap span:nth-of-type(2) {
+	font-size: 12px;
+}
+.config .groove{
+	display: flex;
+	
+	align-items: center;
+	padding: 0 2px;
+	width: 40px;
+	height: 20px;
+	/* background-color: red; */
+	border: 1px solid #7f7f7f;
+	border-radius: 12px;
+	transition-duration: 0.6s;
+}
+.groove.on{
+	justify-content: flex-end;
+	-ms-align-items: center;
+}
+.groove.on .config-button{
+	background-color: #59c996;
+}
+.config-button{
+	width: 16px;
+	height: 16px;
+	background-color: #ededed;
+	border-radius: 50%;
+	border: 1px solid #ccc;
+	/* box-shadow:1px 1px 2px rgba(0,0,0,.2); */
 }
 #login .wordart1{
 	display: block;
@@ -347,6 +386,12 @@ pre{
 /*E 第三屏*/
 
 /*B 工具类*/
+.on{
+
+}
+.off{
+
+}
 .wrap{
 	width: 100%;
 	height: 100%;

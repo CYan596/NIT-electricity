@@ -9,7 +9,6 @@ var selectArr = $('.select')
 var pageArr = $('.page')
 var barArr = $('.main-bar-section')
 var clickableSecArr = $('.p-section-clickable')
-// console.log(clickableSecArr)
 
 // B 可点击框拉取面板
 for (let i = 1; i < clickableSecArr.length; i++) {
@@ -76,7 +75,6 @@ for (var i = 1; i <= 29; i++) {
     })
   }
 }
-console.log(data3)
 
 // var nameEl = clickableSecArr[0]
 // var nameEl = document.getElementById('select')
@@ -313,4 +311,25 @@ $('#p2-presentation').css({'width': presentationSizeObj.x,'height': (parseInt(pr
 }
 
 })
+
+// B UI逻辑
+//groove-button 变换逻辑
+// config-button状态对象
+var configButtonState = {
+  b0 : false ,
+  b1 : false 
+}
+// console.log(configButtonState[0])
+$('.groove')[0].onclick = function () {
+    console.log(1)
+
+  if (configButtonState['b0'] == false) {
+    $(this).toggleClass('on')
+    console.log(1)
+  }
+}
+// E UI逻辑
+
+
 // E load
+
