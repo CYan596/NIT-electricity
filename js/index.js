@@ -310,7 +310,6 @@ $('#p2-presentation').css({'width': presentationSizeObj.x,'height': (parseInt(pr
 
 }
 
-})
 
 // B UI逻辑
 //groove-button 变换逻辑
@@ -331,5 +330,6 @@ $('.groove')[0].onclick = function () {
 // E UI逻辑
 
 
+})
 // E load
 
