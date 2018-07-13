@@ -2,13 +2,22 @@
 $(window).ready(function () {
 
 // B
-
 // E
 
 var selectArr = $('.select')
 var pageArr = $('.page')
 var barArr = $('.main-bar-section')
 var clickableSecArr = $('.p-section-clickable')
+var loading = $('#loading')
+
+
+// B 开场动画
+loading[0].addEventListener('animationend', function () {
+  loading.removeClass('loading-animation')
+})
+loadingActive()
+
+// E 开场动画
 
 // B 可点击框拉取面板
 for (let i = 1; i < clickableSecArr.length; i++) {
@@ -321,13 +330,18 @@ var configButtonState = {
 }
 // console.log(configButtonState[0])
 $('.groove')[0].onclick = function () {
-    console.log(1)
 
   if (configButtonState['b0'] == false) {
     $(this).toggleClass('on')
-    console.log(1)
   }
 }
+
+
+// loading动画激活
+function loadingActive () {
+  loading.addClass('loading-animation')
+}
+
 // E UI逻辑
 
 // B 跨域请求

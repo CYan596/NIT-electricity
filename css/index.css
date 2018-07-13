@@ -22,6 +22,32 @@ body,html{
 pre{
 	word-wrap: normal;
 }
+/*B loading层*/
+#loading{
+	display: none;
+	position: absolute;
+	margin-left: 50%;
+	top:-40px;
+	width: 30px;
+	height: 30px;
+	transform: translateX(-50%);
+	z-index: 10;
+	background-color: #fff;
+	border-radius: 100%;
+	box-shadow:1px 2px 4px rgba(0,0,0,.4);
+	opacity: 0.9;
+}
+#loading .fa{
+	color: #59c996;
+}
+/* #loading-animation{
+	width: 20px;
+	height: 20px;
+	background-color: #fff;
+	border-radius: 100%;
+	border: a;
+} */
+/*E loading层*/
 /*B 第一屏*/
 #page1{
 	position: absolute;
@@ -481,6 +507,10 @@ pre{
 	background-color: #59c996;
 	color: #fff;
 }
+.loading-animation{
+	display: flex !important;
+	animation: loading-animation 3s ease 1;
+}
 
 
 /*B 登陆拉取*/
@@ -610,6 +640,21 @@ pre{
   }
   100% {
   	font-size: 20px;
+  }
+} 
+
+@keyframes loading-animation {
+  0% {
+  	top: -40px;
+  }
+  20% {
+  	top: 65px;
+  }
+  70% {
+  	top: 65px;
+  }
+  100% {
+  	top: -40px;
   }
 } 
 
