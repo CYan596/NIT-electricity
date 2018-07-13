@@ -40,6 +40,10 @@ pre{
 #loading .fa{
 	color: #59c996;
 }
+.loading-animation{
+	display: flex !important;
+	animation: loading-animation 1.5s ease-in-out 1;
+}
 /* #loading-animation{
 	width: 20px;
 	height: 20px;
@@ -48,6 +52,32 @@ pre{
 	border: a;
 } */
 /*E loading层*/
+/*B 提示层*/
+#common-tips{
+	display: none;
+	position: absolute;
+	padding: 10px 40px;
+	margin-left: 50%;
+	top:35%;
+	/* width: 30px; */
+	/* height: 40px; */
+	color: #fff;
+	transform: translateX(-50%);
+	background-color: #59c996;
+	/* background: linear-gradient(90deg, #000, #59c996); */
+
+	border-radius: 6px;
+	box-shadow:1px 2px 4px rgba(0,0,0,.4);
+	opacity: 0.95;
+	z-index: 10;
+}
+.tips-animation{
+	display: block !important;
+	animation: tips-animation 1.5s ease-in-out 1;
+}
+/*E 提示层*/
+
+
 /*B 第一屏*/
 #page1{
 	position: absolute;
@@ -510,10 +540,8 @@ pre{
 	background-color: #59c996;
 	color: #fff;
 }
-.loading-animation{
-	display: flex !important;
-	animation: loading-animation 1.5s ease-in-out 1;
-}
+
+
 
 
 /*B 登陆拉取*/
@@ -665,6 +693,20 @@ pre{
   }
 } 
 
+@keyframes tips-animation {
+  0% {
+  	opacity: 0.3;
+  	top: 35%;
+  }
+  70% {
+  	opacity: 0.9;
+  	top: 35%;
+  }
+  100% {
+  	top: -10%;
+  	opacity: 0;
+  }
+} 
 /*E 动画*/
 
 //测试

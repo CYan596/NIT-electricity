@@ -9,15 +9,20 @@ var pageArr = $('.page')
 var barArr = $('.main-bar-section')
 var clickableSecArr = $('.p-section-clickable')
 var loading = $('#loading')
+var tips = $('#common-tips')
 
 
-// B 开场动画
+// B 动画相关事件
 loading[0].addEventListener('animationend', function () {
   loading.removeClass('loading-animation')
 })
+tips[0].addEventListener('animationend', function () {
+  tips.removeClass('tips-animation')
+})
 loadingActive()
 
-// E 开场动画
+
+// E 动画相关事件
 
 // B 可点击框拉取面板
 for (let i = 1; i < clickableSecArr.length; i++) {
@@ -249,14 +254,28 @@ $('.groove')[0].onclick = function () {
 
   if (configButtonState['b0'] == false) {
     $(this).toggleClass('on')
+    tipsActive('设置成功')
+    console.log(1)
+    configButtonState['b0'] = !configButtonState['b0']
+  } else {
+    $(this).toggleClass('on')
+    tipsActive('关闭成功')
+    console.log(2)
+    configButtonState['b0'] = !configButtonState['b0']
   }
 }
 
 
-// loading动画激活
+// loading动画激活，及loading事件
 function loadingActive () {
   loading.addClass('loading-animation')
 }
+// tip动画激活，及tip事件
+function tipsActive (str1) {
+  tips.addClass('tips-animation')
+  tips.children('.wrap').html(str1)
+}
+  
 
 // E UI逻辑
 
