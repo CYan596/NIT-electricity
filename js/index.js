@@ -71,6 +71,25 @@ function render (i) {
 
 // B 寝室选择
 // 寝室选择选项数组生成
+var data1 = []
+for (var i = 1; i <= 15; i++) {
+  data1.push({
+    text: i + '栋' + 'A',
+    value: 1
+  })
+  data1.push({
+    text: i + '栋' + 'B',
+    value: 1
+  })
+}
+var data2 = []
+for (var i = 1; i <= 6; i++) {
+  data2.push({
+    text: i + '层',
+    value: i
+  })
+}
+
 var data3 = []
 for (var i = 1; i <= 29; i++) {
   if (i < 10) {
@@ -90,142 +109,6 @@ for (var i = 1; i <= 29; i++) {
 // var nameEl = document.getElementById('select')
 // var nameEl = $('#select')[0]
 var nameEl = selectArr.get(0)
-
-var data1 = [
-  {
-    text: '1A',
-    value: 1
-  }, {
-    text: '1B',
-    value: 1
-  }, {
-    text: '2A',
-    value: 1
-  }, {
-    text: '2B',
-    value: 1
-  },
-  {
-    text: '3A',
-    value: 1
-  },{
-    text: '3B',
-    value: 1
-  },
-  {
-    text: '4A',
-    value: 1
-  },{
-    text: '4B',
-    value: 1
-  },
-  {
-    text: '5A',
-    value: 1
-  },{
-    text: '5B',
-    value: 1
-  },
-  {
-    text: '6A',
-    value: 1
-  },{
-    text: '6B',
-    value: 1
-  },
-  {
-    text: '7A',
-    value: 1
-  },{
-    text: '7B',
-    value: 1
-  },
-  {
-    text: '8A',
-    value: 1
-  },{
-    text: '8B',
-    value: 1
-  },
-  {
-    text: '9A',
-    value: 1
-  },{
-    text: '9B',
-    value: 1
-  },
-  {
-    text: '10A',
-    value: 1
-  },{
-    text: '10B',
-    value: 1
-  },
-  {
-    text: '11A',
-    value: 1
-  },{
-    text: '11B',
-    value: 1
-  },
-  {
-    text: '12A',
-    value: 1
-  },{
-    text: '12B',
-    value: 1
-  },
-  {
-    text: '13A',
-    value: 1
-  },{
-    text: '13B',
-    value: 1
-  },
-  {
-    text: '14A',
-    value: 1
-  },
-  {
-    text: '14B',
-    value: 1
-  },
-  {
-    text: '15A',
-    value: 1
-  },
-  {
-    text: '15B',
-    value: 1
-  }
-];
-
-var data2 = [
-  {
-    text: '1层',
-    value: 1
-  },
-  {
-    text: '2层',
-    value: 2
-  },
-  {
-    text: '3层',
-    value: 3
-  },
-  {
-    text: '4层',
-    value: 4
-  },
-  {
-    text: '5层',
-    value: 5
-  },
-  {
-    text: '6层',
-    value: 6
-  }
-];
 
 var picker = new Picker({
   data: [data1, data2, data3],
