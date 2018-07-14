@@ -173,6 +173,7 @@ function localPickerInit () {
     console.log('无用户数据缓存')
     pickerIndex = [0, 0, 0]
     locationArr = [data1[0].value, data2[0].value + data3[0].value]  
+    console.log(locationArr)
     getData(locationArr)
   }
   else{
@@ -187,7 +188,7 @@ function localPickerInit () {
     // 请求参数拼接
     locationArr = [data1[pickerIndex[0]].value, data2[pickerIndex[1]].value+ data3[pickerIndex[2]].value]  
     getData(locationArr)
-    console.log(locationArr)
+    // console.log(locationArr)
   }
 
   // 3、若无，用户选择后存储到本地
@@ -211,7 +212,7 @@ $('#p2-presentation').css({'width': presentationSizeObj.x,'height': (parseInt(pr
         // 指定图表的配置项和数据
         var option = {
             title: {
-                text: '每日用电',
+                text: '每日用电（测试图表，开发中）',
                 subtext: '以下是近一个月的每日用电记录(单位：元)',
                 left:'center',
                 textStyle: {
