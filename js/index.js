@@ -11,6 +11,7 @@ var pullUsefullArr = $('.pull-usefull') //所有可调取页面的可点击元�
 var loading = $('#loading')
 var tips = $('#common-tips')
 var closeBtnArr = $('.close-btn')
+var locationArr = ['5A', '207']
 
 
 // B 动画相关事件
@@ -90,12 +91,11 @@ function render (i) {
 // 寝室选择选项数组生成
 // 本地Picker数据初始化
 
-
 var data1 = []
 for (var i = 1; i <= 15; i++) {
   data1.push({
     text: i + '栋' + 'A',
-    value: i
+    value: i + 'A'
   })
   data1.push({
     text: i + '栋' + 'B',
@@ -144,18 +144,20 @@ picker.on('picker.select', function (selectedVal, selectedIndex) {
 })
 
 picker.on('picker.change', function (index, selectedIndex) {
-  // console.log(index);
+  // console.log('index' + index);
   // console.log(selectedIndex);
   // loadingActive()
 });
 
 picker.on('picker.valuechange', function (selectedVal, selectedIndex) {
-  // console.log(selectedVal);
-  // console.log(selectedIndex);
+  console.log('selectedVal:' + selectedVal);
+  console.log('selectedIndex:' + selectedIndex);
   loadingActive()
   // console.log(selectedIndex)
   var str1 = JSON.stringify(selectedIndex);   
   localStorage.setItem("localPickerIndex", str1); 
+  var arr1 = [selectedVal[0], selectedVal[1].toString() + selectedVal[2] ]
+  getData(arr1)
 });
 
 nameEl.addEventListener('click', function () {
@@ -172,13 +174,18 @@ function localPickerInit () {
     pickerIndex = [0, 0, 0]
   }
   else{
-      console.log('有用户数据缓存')
-  // 2.若有，直接替换PickerIndex
-      var str2 = localStorage.getItem("localPickerIndex");
-      // console.log(str2)
-      // pickerIndex = JSON.parse(str2))
-      pickerIndex = JSON.parse(str2);
-      nameEl.innerText = data1[pickerIndex[0]].text + ' ' + data2[pickerIndex[1]].text + ' ' + data3[pickerIndex[2]].text;
+    console.log('有用户数据缓存')
+// 2.若有，直接替换PickerIndex
+    var str2 = localStorage.getItem("localPickerIndex");
+    // console.log(str2)
+    // pickerIndex = JSON.parse(str2))
+    pickerIndex = JSON.parse(str2);
+    nameEl.innerText = data1[pickerIndex[0]].text + ' ' + data2[pickerIndex[1]].text + ' ' + data3[pickerIndex[2]].text;
+    
+    // 请求参数拼接
+    // locationArr[] = 
+    // ['5A', '207'] 
+    // data1[pickerIndex[0]]
   }
 
   // 3、若无，用户选择后存储到本地
@@ -295,13 +302,18 @@ function tipsActive (str1) {
 /*var f = function(data){
         alert(data.name);
       }*/
-var xhr = new XMLHttpRequest();
-xhr.onload = function(){
-  alert(xhr.responseText);
-};
-xhr.open('get', 'http://60.205.183.30:8080/onepig/electricityServlet?method=getFee&buildingName=5A&roomName=207', true);
-// xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-xhr.send();
+function getData (locationArr) {
+  var feeUrl = 'http://60.205.183.30:8080/onepig/electricityServlet?method=getFee&buildingName='+ locationArr[0] +'&roomName='+locationArr[1]
+  var xhr = new XMLHttpRequest();
+  xhr.onload = function(){
+    alert(xhr.responseText);
+  };
+  xhr.open('get',feeUrl , true);
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+  xhr.send();
+}
+
+
 // E 跨域请求
 
 })
