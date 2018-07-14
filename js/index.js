@@ -7,9 +7,10 @@ $(window).ready(function () {
 var selectArr = $('.select')
 var pageArr = $('.page')
 var barArr = $('.main-bar-section')
-var clickableSecArr = $('.p-section-clickable')
+var pullUsefullArr = $('.pull-usefull') //所有可调取页面的可点击元素
 var loading = $('#loading')
 var tips = $('#common-tips')
+var closeBtnArr = $('.close-btn')
 
 
 // B 动画相关事件
@@ -23,22 +24,33 @@ loadingActive()
 
 
 // E 动画相关事件
-
-// B 可点击框拉取面板
-for (let i = 1; i < clickableSecArr.length; i++) {
-  clickableSecArr[i].onclick = function () {
+// B 可点击框,拉取面板
+for (let i = 0; i < pullUsefullArr.length; i++) {
+  console.log(i)
+  pullUsefullArr[i].onclick = function () {
     render(i)
-    $('#p-page' + i).css('transform', 'translateY(0)')
+    $('#p-page' + (i + 1)).css('transform', 'translateY(0)')
+    // if ((i + 1) == 3) {
+    // }
   }
-  if ($('.close-btn')[i-1] !== undefined) {
-    $('.close-btn')[i-1].onclick = function () {
-      $('.close-btn').parents('#p-page' + i).css('transform', 'translateY(100%)')
-    }
-  }
+  
+    closeBtnArr[i].onclick = function () {
+      $(closeBtnArr[i]).parents('.pull-box').css('transform', 'translateY(100%)')
+    } 
+  // else {
+  //   closeBtnArr[i-1].onclick = function () {
+  //     $(closeBtnArr[i-1]).parents('#p-page' + i).css('transform', 'translateY(100%)')
+  //   }
+  // }
 }
 
 
-// E 可点击框拉取面板
+  // console.log(closeBtnArr)
+$('#p3-NITPayment')[0].onclick = function () {
+    window.open("http://pay.nit.edu.cn/");
+}
+
+// E 可点击框,拉取面板
 
 // B 面板内通用组件
 
@@ -113,7 +125,7 @@ for (var i = 1; i <= 29; i++) {
   }
 }
 
-// var nameEl = clickableSecArr[0]
+// var nameEl = pullUsefullArr[0]
 // var nameEl = document.getElementById('select')
 // var nameEl = $('#select')[0]
 var nameEl = selectArr.get(0)

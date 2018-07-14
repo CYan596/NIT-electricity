@@ -19,6 +19,10 @@ body,html{
 	background-color: #59c996;
 
 }
+a{
+	color: #0070c9;
+	text-decoration: none;
+}
 pre{
 	word-wrap: normal;
 }
@@ -220,25 +224,16 @@ pre{
 	line-height: 30px;
 }
 
-.section-container {
-	position: relative;
-	background-color: #fff;
-	border-radius: 12px;
-	box-shadow:2px 3px 6px rgba(0,0,0,.1);
-	overflow: hidden;
-	opacity: 0.9;
-}
 
-.section-container .fa-angle-right{
-	margin-left: 10px;
-	font-size: 24px;
-}
 #page1 .p-section , #page1 .p-section-clickable{
 	margin: 0 auto;
 	box-sizing: border-box;
 	padding: 0 10px;
 	height: 35px;
 	color: #333;
+}
+#page1 .section-container::after{
+	display: none;
 }
 .p-section span:nth-of-type(1) , .p-section-clickable span:nth-of-type(1){
 }
@@ -251,13 +246,10 @@ pre{
 	-ms-align-items: center;
 	align-items: center;
 }
-.p-section-clickable{
-	display: flex;
-	justify-content: space-between;
-	-ms-align-items: center;
-	align-items: center;
-}
 
+.p-section-clickable .fa-angle-right{
+	color: #999;
+}
 .p-section-clickable .select{
 	height: 100%;
 	color: #59c996;
@@ -344,20 +336,24 @@ pre{
 /*B 第三屏*/
 #page3{
 	display: none;
+	box-sizing: border-box;
 	position: absolute;
-	/* padding: 16px; */
+	padding: 16px 0 50px 0;
 	top: 0;
 	left: 0;
 	right: 0; 
 	bottom: 0;
 	background-color: #eaeaea;
-	padding-bottom: 50px;
 	overflow-y: scroll;
+	overflow-x: hidden;
 }
 #page3 .section-container{
-	margin-top: 10px;
+	/* margin-top: 10px; */
+	height: 60px;
 	border-radius: 0;
 	opacity: 1;
+	padding: 0 4% 0 4%;
+	box-shadow: none;
 }
 #page3 .p-section-clickable{
 	overflow: visible;
@@ -365,7 +361,6 @@ pre{
 #page3 #login{
 	display: flex;
 	box-sizing: border-box;
-	padding: 0 4% 0 4%;
 	justify-content: space-between;
 	height: 85px;
 	color: #333;
@@ -374,10 +369,18 @@ pre{
 #page3 .config{
 	display: flex;
 	justify-content: space-between;
+	-ms-align-items: center;
+	align-items: center;
 	padding: 0 15px 0 15px;
 	height: 60px;
 	letter-spacing: 2px;
 	/* background-color: #59c996; */
+}
+#page3 #p3-NITPayment{
+	height: 60px;
+}
+#page3 #p3-about::after{
+	display: none;
 }
 #page3 .config .button-dropdown-list{
 	border-radius: 0;
@@ -393,10 +396,7 @@ pre{
 	-ms-align-items: flex-start;
 	align-items: flex-start;	
 }
-#page3 .config .wrap span:nth-of-type(1) {
-	margin-bottom: 4px;
-	color: #333;
-}
+
 #page3 .config .wrap span:nth-of-type(2) {
 	font-size: 12px;
 }
@@ -410,7 +410,6 @@ pre{
 	/* background-color: red; */
 	border: 1px solid #7f7f7f;
 	border-radius: 12px;
-	transition-duration: 0.6s;
 }
 .groove.on{
 	/* justify-content: flex-end;
@@ -427,25 +426,18 @@ pre{
 	background-color: #ededed;
 	border-radius: 50%;
 	border: 1px solid #eee;
-	transition-duration: 0.6s;
+	transition-duration: 0.4s;
 	/* box-shadow:1px 1px 2px rgba(0,0,0,.2); */
 }
 #login .wordart1{
 	display: block;
 	color: #333;
 	font-size: 14px;
-	margin-bottom: 4px;
 }
 #login .wordart2{
 	font-size: 12px;
 }
-#login .fa-angle-right{
-	color: #999;
-}
-.p-section-clickable:active{
-	background-color: #efefef;
-    -webkit-tap-highlight-color: transparent;
-}
+
 /*E 第三屏*/
 
 /*B 工具类*/
@@ -483,6 +475,9 @@ pre{
 }
 .box{
 
+}
+.color-7f{
+	color: #7f7f7f;
 }
 .active{
 
@@ -541,8 +536,56 @@ pre{
 	color: #fff;
 }
 
+/* B 通用组件 */
+.section-container {
+	position: relative;
+	background-color: #fff;
+	border-radius: 12px;
+	box-shadow:2px 3px 6px rgba(0,0,0,.1);
+	overflow: hidden;
+	opacity: 0.9;
+	/* border-bottom: 1px solid #eee; */
+}
+.section-container::after{
+	position: absolute;
+	bottom: 0px;
+	content: '';
+	height: 1px;
+	width: 100%;
+	background-color: #ccc;
+}
+.section-container .wrap{
+	display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    -ms-align-items: flex-start;
+    align-items: flex-start;
+}
+.section-container .wordart1{
+	margin-bottom: 8px;
+	letter-spacing: 1px;
+}
+span.subhead {
+	font-size: 12px;
+	color: #7f7f7f;
+	letter-spacing: 2px;
+}
+.section-container .fa-angle-right{
+	margin-left: 10px;
+	font-size: 24px;
+}
 
-
+.p-section-clickable{
+	display: flex;
+	justify-content: space-between;
+	-ms-align-items: center;
+	align-items: center;
+}
+.p-section-clickable:active{
+	background-color: #efefef;
+    -webkit-tap-highlight-color: transparent;
+}
+/* E 通用组件 */
 
 /*B 登陆拉取*/
 #p-page2{
@@ -554,7 +597,6 @@ pre{
 	box-sizing: border-box;
 	background-color: #eaeaea;
 	padding: 10px 16px;
-
 }
 .common-input{
 	box-sizing: border-box;
@@ -599,6 +641,31 @@ pre{
 /*E 登陆拉取*/
 
 /*E 工具类*/
+
+
+/*B 关于，拉取*/
+#p-page3 .panel{
+	box-sizing: border-box;
+	background-color: #eaeaea;
+	/* padding: 10px 16px; */
+}
+#p-page3 img:nth-of-type(1){
+	display: block;
+	margin: -110px auto;
+	height: 320px;
+}
+#p-page3 .wordart1{
+	display: block;
+	margin-bottom: 20px;
+	text-align: center;
+	margin: 0 auto: ;
+	letter-spacing: 1px;
+	color: #7f7f7f;
+}
+#p-page3 .column{
+	margin-bottom: 15px;
+}
+/*E 关于，拉取*/
 
 /*B 动画*/
 
