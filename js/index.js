@@ -306,7 +306,7 @@ function getData (locationArr) {
   var feeUrl = 'http://60.205.183.30:8080/onepig/electricityServlet?method=getFee&buildingName='+ locationArr[0] +'&roomName='+locationArr[1]
   var xhr = new XMLHttpRequest();
   xhr.onload = function(){
-    alert(xhr.responseText);
+    // alert(xhr.responseText);
     feeUpdate (xhr.responseText)
   };
   xhr.open('get',feeUrl , true);
