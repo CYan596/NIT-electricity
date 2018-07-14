@@ -183,9 +183,9 @@ function localPickerInit () {
     nameEl.innerText = data1[pickerIndex[0]].text + ' ' + data2[pickerIndex[1]].text + ' ' + data3[pickerIndex[2]].text;
     
     // 请求参数拼接
-    // locationArr[] = 
-    // ['5A', '207'] 
-    // data1[pickerIndex[0]]
+    locationArr = [data1[pickerIndex[0]].value, data2[pickerIndex[1]].value+ data3[pickerIndex[2]].value]  
+    getData(locationArr)
+    console.log(locationArr)
   }
 
   // 3、若无，用户选择后存储到本地
