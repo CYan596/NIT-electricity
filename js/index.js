@@ -172,6 +172,8 @@ function localPickerInit () {
   if(localStorage.getItem("localPickerIndex") == null) {
     console.log('无用户数据缓存')
     pickerIndex = [0, 0, 0]
+    locationArr = [data1[0].value, data2[0].value + data3[0].value]  
+    getData(locationArr)
   }
   else{
     console.log('有用户数据缓存')
