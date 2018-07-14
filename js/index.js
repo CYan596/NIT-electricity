@@ -295,13 +295,13 @@ function tipsActive (str1) {
 /*var f = function(data){
         alert(data.name);
       }*/
-// var xhr = new XMLHttpRequest();
-// xhr.onload = function(){
-//   alert(xhr.responseText);
-// };
-// xhr.open('get', 'http://60.205.183.30:8080/onepig/electricityServlet?method=getFee&buildName=5A_2_0_5&roomName=5A207', true);
-// // xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-// xhr.send();
+var xhr = new XMLHttpRequest();
+xhr.onload = function(){
+  alert(xhr.responseText);
+};
+xhr.open('get', 'http://60.205.183.30:8080/onepig/electricityServlet?method=getFee&buildingName=5A&roomName=207', true);
+// xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+xhr.send();
 // E 跨域请求
 
 })
