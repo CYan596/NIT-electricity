@@ -318,8 +318,8 @@ function getData (locationArr) {
 
 // B 更新电量显示
 function feeUpdate (str) {
-  var num = parseInt(str)
-  num = num.toFixed(2)
+  var num = parseFloat(str)
+  num = num.toFixed(1)
   fee.html(num)
 }
 // E 更新电量显示
