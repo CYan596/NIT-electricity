@@ -12,7 +12,7 @@ var loading = $('#loading')
 var tips = $('#common-tips')
 var closeBtnArr = $('.close-btn')
 var locationArr = ['5A', '207']
-
+var fee = $('#fee') //费用节点
 
 // B 动画相关事件
 loading[0].addEventListener('animationend', function () {
@@ -156,7 +156,7 @@ picker.on('picker.valuechange', function (selectedVal, selectedIndex) {
   // console.log(selectedIndex)
   var str1 = JSON.stringify(selectedIndex);   
   localStorage.setItem("localPickerIndex", str1); 
-  var arr1 = [selectedVal[0], selectedVal[1].toString() + selectedVal[2] ]
+  var arr1 = [selectedVal[0], selectedVal[1].toString() + selectedVal[2]]
   getData(arr1)
 });
 
@@ -307,14 +307,20 @@ function getData (locationArr) {
   var xhr = new XMLHttpRequest();
   xhr.onload = function(){
     alert(xhr.responseText);
+    feeUpdate (xhr.responseText)
   };
   xhr.open('get',feeUrl , true);
   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
   xhr.send();
 }
 
-
 // E 跨域请求
+
+// B 更新电量显示
+function feeUpdate (str) {
+  fee.html(str)
+}
+// E 更新电量显示
 
 })
 // E load
