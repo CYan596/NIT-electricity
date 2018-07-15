@@ -201,6 +201,21 @@ pre{
 	font-weight: normal;
 	font-size: 58px;
 }
+#p1-animation .fa-spinner{
+	font-size: 20px;
+}
+#p1-animation .wordart4 .fa-spinner {
+/* 	display: flex;
+	justify-content: center;
+	-ms-align-items: center;
+	align-items: center;
+	width: auto;
+	height: auto; */
+}
+#p1-animation .wordart4 .fa-spinner::before{
+	/* width: auto;
+	height: auto; */
+}
 /*B 下部数据展示*/
 .p-title{
 	display: flex;
@@ -478,6 +493,10 @@ pre{
 }
 .color-7f{
 	color: #7f7f7f;
+}
+.normal-font{
+	color: #fff !important;
+	font-size: 18px !important;
 }
 .active{
 

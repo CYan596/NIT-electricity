@@ -13,6 +13,7 @@ var tips = $('#common-tips')
 var closeBtnArr = $('.close-btn')
 var locationArr = ['5A', '207']
 var fee = $('#fee') //费用节点
+var loadFont = $('#p1-animation').children('#wordart1')
 
 // B 动画相关事件
 loading[0].addEventListener('animationend', function () {
@@ -212,7 +213,7 @@ $('#p2-presentation').css({'width': presentationSizeObj.x,'height': (parseInt(pr
         // 指定图表的配置项和数据
         var option = {
             title: {
-                text: '每日用电（测试图表，开发中）',
+                text: '每日用电（测试用图表，开发中）',
                 subtext: '以下是近一个月的每日用电记录(单位：元)',
                 left:'center',
                 textStyle: {
@@ -323,7 +324,15 @@ function getData (locationArr) {
 function feeUpdate (str) {
   var num = parseFloat(str)
   num = num.toFixed(1)
-  fee.html(num)
+  if (isNaN(num)) {
+    fee.addClass('normal-font')
+    fee.html('无电费数据')
+  }
+  else{
+    fee.removeClass('normal-font')
+    fee.html(num)
+    // loadFont.fadeOut()
+  }
 }
 // E 更新电量显示
 
