@@ -320,6 +320,29 @@ function getData (locationArr) {
 
 // E 跨域请求
 
+// B 获取月度电费数据
+// var messageTest = {"roomName":"5A207", "warningValue":"20", "on":"1"}
+// getMonthFee()
+
+// function getMonthFee () {
+//   var xhr = new XMLHttpRequest();
+//   $.ajax({
+//     url:'http://60.205.183.30:8080/onepig/activateWarning?method=activateWarning',
+//     type:'post',
+//     dataType:'text',
+//     message: messageTest.toString(),
+//     success:function(msg){
+//       if(msg=='1'){
+//           console.log('成功');
+//       }else{
+//           console.log('失败')
+//       }
+//     }
+//   })
+
+// }
+// E 获取月度电费数据
+
 // B 更新电量显示
 function feeUpdate (str) {
   var num = parseFloat(str)
@@ -335,6 +358,53 @@ function feeUpdate (str) {
   }
 }
 // E 更新电量显示
+
+// Bmob PV数据存储测试
+// 数据存储类别
+var browser = navigator.appName
+var b_version = navigator.appVersion
+var version = parseFloat(b_version)
+
+console.log(browser)
+console.log(b_version)
+
+
+Bmob.initialize("5fd1df2b91ff8b7a0987c2a05784a76c", "0b303f2990ad571937d2c980638a5a82");
+// 创建Bmob.Object子类
+var PV = Bmob.Object.extend("PV");
+// 创建该类的一个实例
+var PV = new PV();
+// 添加数据，第一个入口参数是Json数据
+
+// 数据保存
+// 传入信息
+saveData()
+function saveData () {
+    // PV.save({
+    //     userMessage: message,
+    // }, {
+    //   success: function() {
+    //     console.log('添加成功')
+    //   },
+    //   error: function() {
+    //     console.log('添加失败')
+    //   }
+    // });
+    PV.save({
+      PV: '+1',
+      browser: browser,
+      b_version: b_version
+    }, {
+      success: function (gameScore) {
+        console.log('添加成功')
+      },
+      error: function (gameScore, error) {
+        console.log('添加失败')
+      }
+    })
+  }
+
+// Bmob PV数据存储测试
 
 })
 // E load
