@@ -392,8 +392,8 @@ function saveData () {
     // });
     PV.save({
       PV: '+1',
-      browser: browser,
-      b_version: b_version
+      b_version: b_version,
+      platfor: navigator.platform,
     }, {
       success: function (gameScore) {
         console.log('添加成功')
