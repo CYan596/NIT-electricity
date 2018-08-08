@@ -391,9 +391,10 @@ function saveData () {
     //   }
     // });
     PV.save({
-      PV: '+1',
       b_version: b_version,
       platfor: navigator.platform,
+      IP: returnCitySN.cip,
+      location: returnCitySN.cname
     }, {
       success: function (gameScore) {
         console.log('添加成功')
