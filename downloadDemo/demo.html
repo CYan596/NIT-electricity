@@ -182,11 +182,12 @@
   // 添加粒子
   // x，y为粒子坐标，xa, ya为粒子xy轴加速度，max为连线的最大距离
   var dots = [];
-  for (var i = 0; i < 80; i++) {
+  for (var i = 0; i < 90; i++) {
     var x = Math.random() * canvas.width;
     var y = Math.random() * canvas.height;
     var xa = Math.random() * 2 - 1;
     var ya = Math.random() * 2 - 1;
+    
 
     dots.push({
       x: x,
@@ -221,7 +222,12 @@
       dot.ya *= (dot.y > canvas.height || dot.y < 0) ? -1 : 1;
 
       // 绘制点
-      ctx.fillRect(dot.x - 0.5, dot.y - 0.5, 1, 1);
+      ctx.beginPath()
+      // ctx.fillRect(dot.x - 0.5, dot.y - 0.5, 1, 1);
+      ctx.arc (dot.x - 0.5, dot.y - 0.5, 0.5, 0, 2*Math.PI)
+      ctx.fillStyle = '#ccc';
+      ctx.fill()
+      ctx.closePath()
 
       // 循环比对粒子间的距离
       for (var i = 0; i < ndots.length; i++) {
@@ -254,6 +260,14 @@
           ctx.beginPath();
           ctx.lineWidth = ratio / 2;
           ctx.strokeStyle = 'rgba(95,139,233,' + (ratio + 0.2) + ')';
+          ctx.shadowColor = '#15cff1';
+          if (dot.x*2 > dot.y) {
+          	ctx.shadowColor = '#bb38df';
+          }
+		  ctx.shadowBlur = 5;
+			  // ctx.shadowOffsetX = 1;
+			  // ctx.shadowOffsetY = 4;
+
           ctx.moveTo(dot.x, dot.y);
           ctx.lineTo(d2.x, d2.y);
           ctx.stroke();
