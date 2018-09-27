@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=1, user-scalable=no">
+	<title>apk下载页</title>
+	<style>
+		body{
+			background-color: #000;
+			padding: 10px;
+		}
+			margin: 5px 0;
+		}
+		.wrap{
+			/* background-clip: text; */
+			/* background-size: auto; */
+			/* -webkit-text-fill-color: transparent; */
+		    /* text-transform: uppercase; */
+		}
+		.font-test1{
+			margin-bottom: 10px;
+			font-weight: bold;
+			font-size: 34px;
+			/* color: #59c996; */
+			/* text-shadow: -2px 1px 7px #111; */
+			/* -webkit-text-fill-color: transparent; */
+			background: url(purple.jpg);
+			background-position: 53% 63%;
+			-webkit-background-clip:text;
+			-webkit-text-fill-color: transparent;
+		}
+		#icon{
+			margin: 60px 0 40px 0;
+		}
+		.font-test2{
+			margin-bottom: 20px;
+			font-weight: bold;
+			font-size: 25px;
+			/* color: #59c996; */
+			/* text-shadow: -2px 1px 11px #111; */
+			background: url(purple.jpg);
+			background-position: 53% 33%;
+			-webkit-background-clip:text;
+			-webkit-text-fill-color: transparent;
+		}
+		.container{
+			padding: 12px;
+			display: flex;
+			flex-direction: column;
+			justify-content: start;
+			-ms-align-items: center;
+			align-items: center;
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			/* background-color: black; */
+		}
+		.btn-default{
+			margin: 0 10px;
+			width: 125px;
+			padding: 4px 20px;
+			color: #fff;
+			font-size: 14px;
+			font-weight: bold;
+			line-height: 30px;
+			/* border: 1px solid #e6e6e6; */
+			border: none;
+			border-radius: 4px;
+		    background: linear-gradient(rgb(66, 161, 236), rgb(0, 112, 201)); 
+			letter-spacing:1px;
+			cursor: pointer;
+		}
+		.download{
+			margin-top: 20px;
+		}
+		.introduce{
+			margin-bottom: 40px;
+			padding: 0 20px;
+			color: #929292;
+		}
+		#footer{
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			height: 30px;
+		}
+		#footer .introduce{
+			color: #666;
+			font-size: 12px;
+			text-align: center;
+			margin: 0;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">	
+		
+		<img src="lib/icon.svg" alt="" width="150" id="icon">
+
+		<div class="wrap">
+			<p class="font-test1">
+				南工助手-电费模块
+			</p>
+		</div>
+
+		<p class="font-test2">
+			为你的轻松生活
+		</p>
+
+		<p class="introduce">
+			瑶湖校区宿舍电费快捷查询，低电量提醒
+		</p>
+
+		<div>
+			<button class="btn-default download ">
+				Android版
+			</button>
+			<button class="btn-default download ">
+				网页版
+			</button>
+		</div>
+
+	</div>
+
+
+	<div id="footer">
+		<p class="introduce">
+			@南工数据开发团队
+		</p>
+	</div class="footer">
+</body>
+</html>
