@@ -18,17 +18,13 @@
 			left: 0;
 			right: 0;
 			bottom: 	0;
-			background-color: #000;
+			background-color: #fff;
 			/* padding: 10px; */
 		}
 		p{
 			margin: 5px 0;
 		}
 		.wrap{
-			/* background-clip: text; */
-			/* background-size: auto; */
-			/* -webkit-text-fill-color: transparent; */
-		    /* text-transform: uppercase; */
 		}
 		.font-test1{
 			margin-bottom: 10px;
@@ -37,23 +33,25 @@
 			/* color: #59c996; */
 			/* text-shadow: -2px 1px 7px #111; */
 			/* -webkit-text-fill-color: transparent; */
-			background: url(purple.jpg);
+			background: url(purple2.jpg);
 			background-position: 53% 63%;
 			-webkit-background-clip:text;
 			-webkit-text-fill-color: transparent;
 		}
 		#icon{
-			margin: 30px 0 40px 0;
+			flex:1;
+			/* margin: 30px 0 40px 0; */
 			border-radius: 50%;
 			z-index: -1;
 		}
 		.font-test2{
+			flex:1;
 			margin-bottom: 20px;
 			font-weight: bold;
 			font-size: 25px;
 			/* color: #59c996; */
 			/* text-shadow: -2px 1px 11px #111; */
-			background: url(purple.jpg);
+			background: url(purple2.jpg);
 			background-position: 53% 33%;
 			-webkit-background-clip:text;
 			-webkit-text-fill-color: transparent;
@@ -73,13 +71,14 @@
 			/* background-color: black; */
 		}
 		.btn-default{
+			display: inline-block;
 			margin: 0 10px;
-			width: 125px;
-			padding: 4px 20px;
+			width: 140px;
+			/* padding: 4px 20px; */
 			color: #fff;
-			font-size: 14px;
+			font-size: 16px;
 			font-weight: bold;
-			line-height: 30px;
+			line-height: 35px;
 			/* border: 1px solid #e6e6e6; */
 			border: none;
 			border-radius: 4px;
@@ -91,8 +90,8 @@
 			margin-top: 20px;
 		}
 		.introduce{
-			margin-bottom: 40px;
-			padding: 0 20px;
+			/* margin-bottom: 40px; */
+			padding: 10px 20px;
 			color: #929292;
 		}
 		#footer{
@@ -108,6 +107,43 @@
 			text-align: center;
 			margin: 0;
 		}
+		/* 工具类 */
+		.flex1{
+			flex: 1;
+		}
+		.flex2{
+			flex: 2;
+		}
+		.flex3{
+			flex: 3;
+		}
+		.center{
+			display: flex;
+			justify-content: center;
+			-ms-align-items: center;
+			align-items: center;
+		}
+		.center-column{
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			-ms-align-items: center;
+			align-items: center;
+		}
+		.inner{
+			width: 100%;
+			height: 100%;
+		}
+		.beta{
+			margin-left: 3px;
+			padding: 0 1px;
+			line-height: 14px;
+			font-size: 12px;
+			/* font-weight: bold; */
+			color: #fff;
+			border: 2px solid #fff;
+			border-radius: 4px;
+		}
 	</style>
 </head>
 <body>
@@ -115,35 +151,37 @@
 
 	<div class="container">	
 		
-		<img src="lib/icon.svg" alt="" width="150" id="icon">
+		<div class="wrap flex3 center">
+			<img src="lib/icon.svg" alt="" width="160" id="icon" class="flex2">
+		</div>
 
-		<div class="wrap">
+		<div class="flex1 center-column">
 			<p class="font-test1">
 				南工助手-电费模块
 			</p>
+
+			<p class="font-test2">
+				为你的轻松生活
+			</p>
 		</div>
 
-		<p class="font-test2">
-			为你的轻松生活
-		</p>
-
-		<p class="introduce">
+		<p class="introduce flex1">
 			瑶湖校区宿舍电费快捷查询，低电量提醒
 		</p>
 
-		<div>
+		<div class="flex2">
 			<a class="btn-default download " href="http://zhukeqing.xyz/NIT-electricity/">
-				Android版
+				<span class="inner center">Android版<span class="beta">beta</span></span>
 			</a>
 			<a class="btn-default download " href="http://zhukeqing.xyz/NIT-electricity/">
-				网页版
+				<span class="inner center">网页版<span class="beta">beta</span></span>
 			</a>
 		</div>
 
 	</div>
 
 
-	<div id="footer">
+	<div id="footer" class="flex1">
 		<p class="introduce">
 			@南工数据开发团队
 		</p>
@@ -152,6 +190,12 @@
 	<script>
   var canvas = document.getElementById("cas");
   var ctx = canvas.getContext("2d");
+  var config = {
+  	pointNumber: 50
+  }
+  if(document.body.clientWidth > 425){
+  	config.pointNumber = 140
+  }
 
   resize();
   window.onresize = resize;
@@ -185,7 +229,7 @@
   // 添加粒子
   // x，y为粒子坐标，xa, ya为粒子xy轴加速度，max为连线的最大距离
   var dots = [];
-  for (var i = 0; i < 90; i++) {
+  for (var i = 0; i < config.pointNumber; i++) {
     var x = Math.random() * canvas.width;
     var y = Math.random() * canvas.height;
     var xa = Math.random() * 2 - 1;
