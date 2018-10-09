@@ -142,12 +142,14 @@ var picker = new Picker({
 
 picker.on('picker.select', function (selectedVal, selectedIndex) {
   nameEl.innerText = data1[selectedIndex[0]].text + ' ' + data2[selectedIndex[1]].text + ' ' + data3[selectedIndex[2]].text;
+
 })
 
 picker.on('picker.change', function (index, selectedIndex) {
   // console.log('index' + index);
   // console.log(selectedIndex);
   // loadingActive()
+  shake()
 });
 
 picker.on('picker.valuechange', function (selectedVal, selectedIndex) {
@@ -159,10 +161,12 @@ picker.on('picker.valuechange', function (selectedVal, selectedIndex) {
   localStorage.setItem("localPickerIndex", str1); 
   var arr1 = [selectedVal[0], selectedVal[1].toString() + selectedVal[2]]
   getData(arr1)
+  shake()
 });
 
 nameEl.addEventListener('click', function () {
   picker.show();
+  shake()
 });
 
 // 本地数据读取
@@ -429,7 +433,9 @@ function saveData () {
 // }
 // /全屏函数
 
-
+function shake(){
+    navigator.vibrate([15]);
+  }
 
 
 })
