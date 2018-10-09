@@ -192,8 +192,23 @@
   var canvas = document.getElementById("cas");
   var ctx = canvas.getContext("2d");
   var config = {
-  	pointNumber: 50
+  	pointNumber: 50,
+  	color: null,
+  	color2: null,
+  	color3: null
   }
+
+  setColor()
+
+  // setInterval(setColor,1000)
+
+  function setColor(){
+	  config.color = getRandomColorArr()
+	  config.color2 = getRandomColorArr()
+	  config.color3 = getRandomColorArr()
+	  console.log(config)
+  }
+
   if(document.body.clientWidth > 425){
   	config.pointNumber = 140
   }
@@ -273,7 +288,9 @@
       ctx.beginPath()
       // ctx.fillRect(dot.x - 0.5, dot.y - 0.5, 1, 1);
       ctx.arc (dot.x - 0.5, dot.y - 0.5, 0.5, 0, 2*Math.PI)
+      // ctx.fillStyle = config.color;
       ctx.fillStyle = '#ccc';
+
       ctx.fill()
       ctx.closePath()
 
@@ -307,10 +324,13 @@
           // 画线
           ctx.beginPath();
           ctx.lineWidth = ratio / 2;
-          ctx.strokeStyle = 'rgba(95,139,233,' + (ratio + 0.2) + ')';
-          ctx.shadowColor = '#15cff1';
+          // ctx.strokeStyle = 'rgba(95,139,233,' + (ratio + 0.2) + ')';
+          ctx.strokeStyle = config.color;
+
+          // ctx.shadowColor = '#15cff1';
+          ctx.shadowColor = config.color2;
           if (dot.x*2 > dot.y) {
-          	ctx.shadowColor = '#bb38df';
+          	ctx.shadowColor = config.color3;
           }
 		  ctx.shadowBlur = 5;
 			  // ctx.shadowOffsetX = 1;
@@ -328,6 +348,12 @@
     });
 
     RAF(animate);
+  }
+
+  function getRandomColorArr(){
+  	var randomNumber = Math.floor((Math.random()*255))
+  	console.log(randomNumber)
+  	return ('rgb(' +Math.floor((Math.random()*255)) + ',' +Math.floor((Math.random()*255)) +',' +Math.floor((Math.random()*255))+ ')')
   }
 </script>
 </body>

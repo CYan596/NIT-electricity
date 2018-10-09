@@ -380,32 +380,57 @@ var PV = new PV();
 // 传入信息
 saveData()
 function saveData () {
-    // PV.save({
-    //     userMessage: message,
-    // }, {
-    //   success: function() {
-    //     console.log('添加成功')
-    //   },
-    //   error: function() {
-    //     console.log('添加失败')
-    //   }
-    // });
-    PV.save({
-      b_version: b_version,
-      platfor: navigator.platform,
-      IP: returnCitySN.cip,
-      location: returnCitySN.cname
-    }, {
-      success: function (gameScore) {
-        console.log('添加成功')
-      },
-      error: function (gameScore, error) {
-        console.log('添加失败')
-      }
-    })
-  }
-
+  // PV.save({
+  //     userMessage: message,
+  // }, {
+  //   success: function() {
+  //     console.log('添加成功')
+  //   },
+  //   error: function() {
+  //     console.log('添加失败')
+  //   }
+  // });
+  PV.save({
+    b_version: b_version,
+    platfor: navigator.platform,
+    IP: returnCitySN.cip,
+    location: returnCitySN.cname
+  }, {
+    success: function (gameScore) {
+      console.log('添加成功')
+    },
+    error: function (gameScore, error) {
+      console.log('添加失败')
+    }
+  })
+}
 // Bmob PV数据存储测试
+
+// B 全屏函数
+// screenFull()
+// function screenFull() {
+//     var docElm = document.documentElement;
+//     //W3C
+//     if (docElm.requestFullscreen) {
+//          docElm.requestFullscreen();
+//     }
+//     //FireFox 
+//     else if (docElm.mozRequestFullScreen) {
+//          docElm.mozRequestFullScreen();
+//     }
+//     //Chrome等 
+//     else if (docElm.webkitRequestFullScreen) {
+//          docElm.webkitRequestFullScreen();
+//     }
+//     //IE11
+//     else if (elem.msRequestFullscreen) {
+//          elem.msRequestFullscreen();
+//     }
+// }
+// /全屏函数
+
+
+
 
 })
 // E load
