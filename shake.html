@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, user-scalable=1, user-scalable=no">
+	<meta charset="UTF-8">
+    <!-- <script src="https://c.xiaozhuyoupu.com/jquery.min.js"></script> -->
+	<title>震动api测试</title>
+</head>
+<body>
+	<div id="btn">
+		<a href="">震动api测试</a>
+	</div>
+
+	<script>
+		// $("#btn").click(function() {
+  //           navigator.vibrate([1000, 10, 1000, 10]);
+  //       });
+        var btn = document.getElementById ( 'btn' )
+        btn.onclick = shake
+        shake()
+        function shake(){
+        	navigator.vibrate([70, 50, 70, 50, 70, 50, 70, 50, 70, 50, 70, 50]);
+        }
+	</script>
+</body>
+</html>
