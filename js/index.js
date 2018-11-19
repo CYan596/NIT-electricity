@@ -435,7 +435,7 @@ function saveData () {
 
 function shake(){
     navigator.vibrate([15]);
-  }
+}
 
 
 })
