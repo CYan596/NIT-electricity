@@ -14,6 +14,7 @@ var closeBtnArr = $('.close-btn')
 var locationArr = ['5A', '207']
 var fee = $('#fee') //费用节点
 var loadFont = $('#p1-animation').children('#wordart1')
+var stuNum = $('#stu-num')
 
 // B 动画相关事件
 loading[0].addEventListener('animationend', function () {
@@ -56,7 +57,17 @@ $('#p3-NITPayment')[0].onclick = function () {
 
 // B 面板内通用组件
 
+// B stu-num input 相关
+stuNum.blur(function(){
+  stuNum.addClass('p-input-blur')
+})
 
+// 学号验证
+function stuNumVerify(){
+  
+}
+
+// E stu-num input 相关
 
 // E 面板内通用组件
 

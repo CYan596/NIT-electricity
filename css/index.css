@@ -216,6 +216,9 @@ pre{
 	/* width: auto;
 	height: auto; */
 }
+#stu-num{
+	line-height: 22px;
+}
 /*B 下部数据展示*/
 .p-title{
 	display: flex;
@@ -456,6 +459,20 @@ pre{
 /*E 第三屏*/
 
 /*B 工具类*/
+
+/* input通用基础样式 */
+.p-input{ 
+	text-align: center;
+	box-shadow: 0;
+	border-radius: 6px;
+	border: 1px solid #cdc;
+}
+/*E input通用基础样式 */
+/* input失焦样式  */
+.p-input-blur{ 
+	color: #bbb;
+}
+/*E input失焦样式 */
 .on{
 
 }
