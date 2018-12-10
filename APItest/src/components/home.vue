@@ -51,26 +51,26 @@
 		// 1、监听学号及寝室号输入框，若位数达到即发起请求获取数据
 		watch:{
 			'dormitory': function(newVal){
+				console.log('dormitory变化')
 				const ElectricityFeeUrl ='http://60.205.183.30:8080/onepig/electricity/ElectricityAction_getElectricityFee.action';
 				var params = new URLSearchParams();
-				params.append('method', 'getFee');       //要传给后台的参数值 key/value
-				params.append('buildingName', '5A');
-				params.append('roomName', '207');
+				var buildingName = '',
+					roomName = ''
 
-				// 获取寝室电费余额
-				// var x = this
-				// console.log(x)
-				// this.$options.methods.getDormitoryFee(x)
-				// console.log(newVal.length==6||newVal.length==5)
-				if (newVal.length==6||newVal.length==5){
-					params = {
-				      method: 'getFee',
-				      buildingName:'5A',
-				      roomName:'207'
-				    };
-
+				if (newVal.length==5){
+					buildingName = newVal.slice(0, 2),
+			    	roomName = newVal.slice(2, 5)
+			    }else if (newVal.length==6) {
+					buildingName = newVal.slice(0, 3),
+			    	roomName = newVal.slice(3, 6)
+				}else{
+					console.log('参数不合法')
+					return false;
 				}
 
+				params.append('method', 'getFee');       //要传给后台的参数值 key/value
+				params.append('buildingName', buildingName);
+				params.append('roomName', roomName);
 
 				this.$axios({
 				    method: 'post',
