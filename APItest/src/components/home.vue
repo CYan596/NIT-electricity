@@ -12,7 +12,7 @@
 </template>   
 
 <script>
-	const ElectricityFeeUrl ='http://60.205.183.30:8080/onepig/electricity/ElectricityAction_getElectricityFee';
+	
 
 	export default{
 		//data是一个函数，返回一个对象.
@@ -51,6 +51,8 @@
 		// 1、监听学号及寝室号输入框，若位数达到即发起请求获取数据
 		watch:{
 			'dormitory': function(newVal){
+				const ElectricityFeeUrl ='http://60.205.183.30:8080/onepig/electricity/ElectricityAction_getElectricityFee';
+				var params = new URLSearchParams();
 				// 获取寝室电费余额
 				// var x = this
 				// console.log(x)
@@ -65,13 +67,15 @@
 
 				}
 
-				
-				this.$axios.post(ElectricityFeeUrl,{
-					method: 'getFee',
-					buildingName:'5A',
-					roomName:'207'
-				})
-				.then(function (response) {
+				params.append('method', 'getFee');       //你要传给后台的参数值 key/value
+				params.append('buildingName', '5A');
+				params.append('roomName', '207');
+
+				this.$axios({
+				    method: 'post',
+				    url:ElectricityFeeUrl,
+				    data:params
+				}).then(function (response) {
 					console.log(response);
 				})
 				.catch(function (error) {
