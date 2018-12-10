@@ -73,9 +73,9 @@
 				params.append('roomName', roomName);
 
 				this.$axios({
-				    method: 'post',
+				    method: 'get',
 				    url:ElectricityFeeUrl,
-				    data:params
+				    params:params
 				}).then(function (response) {
 					console.log(response);
 				})
