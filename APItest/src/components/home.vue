@@ -84,8 +84,33 @@
 				});
 			},
 			'stuNum': function(newVal){
-				// 获取一卡通余额
 				console.log('stuNum发生了变化')
+
+				const stuFeeUrl ='http://60.205.183.30:8080/onepig/card/CardFeeAction.action';
+				var params = new URLSearchParams();
+				var studentId = ''
+				
+				if (newVal.length==10){
+					studentId = newVal
+			    }else{
+					console.log('参数不合法')
+					return false;
+				}
+
+				params.append('studentId', newVal);
+
+				this.$axios({
+				    method: 'get',
+				    url:stuFeeUrl,
+				    params:params
+				}).then(function (response) {
+					console.log(response);
+				})
+				.catch(function (error) {
+					console.log(error);
+				});
+
+				// 获取一卡通余额
 			}
 		}	
 	}
