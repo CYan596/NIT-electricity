@@ -12,6 +12,8 @@
 </template>   
 
 <script>
+	const ElectricityFeeUrl ='http://60.205.183.30:8080/onepig/electricity/ElectricityAction_getElectricityFee';
+
 	export default{
 		//data是一个函数，返回一个对象.
 		data(){
@@ -23,6 +25,11 @@
 		//声明函数，属于组件对象的
 		methods:{
 			getDormitoryFee(){
+				var params = {
+			      method: 'getFee',
+			      buildingName:'5A',
+			      roomName:'207'
+			    }
 				this.$axios.get('http://60.205.183.30:8080/onepig/electricityServlet',{
 					params: {
 				      method: 'getFee',
@@ -48,8 +55,22 @@
 				// var x = this
 				// console.log(x)
 				// this.$options.methods.getDormitoryFee(x)
+				// console.log(newVal.length==6||newVal.length==5)
+				if (newVal.length==6||newVal.length==5){
+					var params = {
+				      method: 'getFee',
+				      buildingName:'5A',
+				      roomName:'207'
+				    };
 
-				this.$axios.get('http://60.205.183.30:8080/onepig/electricityServlet?method=getFee&buildingName=5A&roomName=207')
+				}
+
+				
+				this.$axios.post(ElectricityFeeUrl,{
+					method: 'getFee',
+					buildingName:'5A',
+					roomName:'207'
+				})
 				.then(function (response) {
 					console.log(response);
 				})

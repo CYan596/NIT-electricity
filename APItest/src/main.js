@@ -10,6 +10,7 @@ import About from './components/about.vue'
 // 引入HTTP操作库
 import Axios from 'axios';
 //给Vue原型挂载一个属性
+Axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
 Vue.prototype.$axios = Axios;
 
 // 全局axios
