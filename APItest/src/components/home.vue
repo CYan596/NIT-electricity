@@ -13,7 +13,7 @@
 
 <script>
 	export default{
-		//data是一个函数，返回一个对象
+		//data是一个函数，返回一个对象.
 		data(){
 			return {
 				dormitory:'',
