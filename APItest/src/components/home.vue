@@ -22,8 +22,8 @@
 		},
 		//声明函数，属于组件对象的
 		methods:{
-			getDormitoryFee(){
-				this.$axios.get('http://60.205.183.30:8080/onepig/electricityServlet?method=getFee&buildingName=5A&roomName=207')
+			getDormitoryFee(x){
+				x.$axios.get('http://60.205.183.30:8080/onepig/electricityServlet?method=getFee&buildingName=5A&roomName=207')
 				.then(function (response) {
 					console.log(response);
 				})
@@ -39,15 +39,17 @@
 		watch:{
 			'dormitory': function(newVal){
 				// 获取寝室电费余额
-				// this.$options.methods.getDormitoryFee()
+				var x = this
+				console.log(x)
+				this.$options.methods.getDormitoryFee(x)
 
-				this.$axios.get('http://60.205.183.30:8080/onepig/electricityServlet?method=getFee&buildingName=5A&roomName=207')
-				.then(function (response) {
-					console.log(response);
-				})
-				.catch(function (error) {
-					console.log(error);
-				});
+				// this.$axios.get('http://60.205.183.30:8080/onepig/electricityServlet?method=getFee&buildingName=5A&roomName=207')
+				// .then(function (response) {
+				// 	console.log(response);
+				// })
+				// .catch(function (error) {
+				// 	console.log(error);
+				// });
 			},
 			'stuNum': function(newVal){
 				// 获取一卡通余额
