@@ -1,9 +1,9 @@
 <template>
 	<div class="footer flex-space-around">
-		<router-link to="/home" class='switch flex-center'>主页</router-link>
-      	<router-link to="/about" class='switch flex-center'>关于</router-link>
+		<router-link to="/home" class='switch flex-center'>首页</router-link>
+		<router-link to="/about" class='switch flex-center'>更多</router-link>
 	</div>
-</template>   
+</template>
 
 <script>
 	export default{
@@ -26,7 +26,7 @@
 	border-top: 1px solid #eee;
 }
 .switch{
-
+	text-decoration: none;
 }
 
 </style>

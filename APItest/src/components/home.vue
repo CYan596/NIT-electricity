@@ -33,7 +33,7 @@
 
 			<div class="rotundity"></div>
 
-			<mt-button type="primary"  v-on:click="popup" id="setting">编辑</mt-button>
+			<mt-button type="primary"  v-on:click="popup" id="setting">编辑个人信息</mt-button>
 
 			<mt-popup	v-model="popupVisible" popup-transition="popup-fade">
 				<!-- 弹出框内容 -->
@@ -118,11 +118,17 @@
 				if (newVal.length==5){ //判断寝室号是否合法
 					buildingName = newVal.slice(0, 2),
 					roomName = newVal.slice(2, 5)
+
 					this.dormitory = newVal
+					localStorage.setItem('domitary', newVal);
+
 				}else if (newVal.length==6) {
 					buildingName = newVal.slice(0, 3),
 					roomName = newVal.slice(3, 6)
+
 					this.dormitory = newVal
+					localStorage.setItem('domitary', newVal)
+
 				}else{
 					console.log('参数不合法')
 					return false;
@@ -139,7 +145,7 @@
 				}).then(function (response) {
 					console.log(response);
 					let DEbalance = response.data
-					vueThis.stuInfo.DEbalance = DEbalance
+					vueThis.stuInfo.DEbalance = DEbalance + '度'
 				})
 				.catch(function (error) {
 					console.log(error);
@@ -156,8 +162,8 @@
 				vueThis = this
 
 				if (newVal.length==10){ //判断参数是否合法
-					studentId = newVal
-					this.stuId = newVal
+					studentId = vueThis.stuId = newVal
+					localStorage.setItem('stuId', newVal);
 				}else{
 					console.log('参数不合法')
 					return false;
@@ -172,13 +178,23 @@
 				}).then(function (response) {
 					console.log(response);
 					let OCPbalanceArr = response.data.OCPbalance
-					vueThis.stuInfo.OCPbalance = OCPbalanceArr[OCPbalanceArr.length - 1].balance
+					vueThis.stuInfo.OCPbalance = OCPbalanceArr[OCPbalanceArr.length - 1].balance + '元'
 				})
 				.catch(function (error) {
 					console.log(error);
 				});
 
 				// 获取一卡通余额
+			}
+		},
+		mounted:function () {
+			// console.log("mounted生命周期函数")
+			if(localStorage.getItem('stuId')&&localStorage.getItem('domitary')) {
+				console.log('已获取到本地存储');
+				this.popupForm.dormitory = localStorage.getItem('domitary')
+				this.popupForm.stuId = localStorage.getItem('stuId')
+			} else {
+				console.log('未获取到本地存储');
 			}
 		}
 	}
