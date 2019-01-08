@@ -112,7 +112,7 @@
 				const ElectricityFeeUrl ='http://60.205.183.30:8080/onepig/electricity/ElectricityAction_getElectricityFee.action';
 				var params = new URLSearchParams();
 				var buildingName = '',
-					roomName = ''
+					roomName = '',
 					vueThis = this
 
 				if (newVal.length==5){ //判断寝室号是否合法
