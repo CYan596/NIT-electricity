@@ -42,7 +42,7 @@
 					<!-- <mt-cell title="电费余额" value="请先输入寝室号"></mt-cell>
 					<mt-cell title="一卡通余额" value="请先输入学号"></mt-cell> -->
 
-					<div id='home-submit-Btn' class="flex-center">
+					<div id='home-submit-Btn' class="flex-center" @click="popupVisible = false">
 						<mt-button type="primary" style="width:75%;height:30px;background-color:#5387f4">确定</mt-button>
 					</div>
 			</mt-popup>
