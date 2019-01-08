@@ -1,0 +1,54 @@
+导包：
+12 --- hibernate除了jpa
+1   --- c3p0
+1   --- dbutils
+
+13 --- struts2除去javassit
+2   --- struts返回json串
+
+1   --- gson
+1   --- mail
+
+15 --- spring去除c3p0
+
+46
+
+一、电度查询
+  1、纯电度数据：http://60.205.183.30:8080/onepig/electricity/ElectricityAction_getElectricityFee.action
+  2、详细数据：http://60.205.183.30:8080/onepig/electricity/ElectricityAction_getElectricityRecord.action
+	参数：
+		buildingName=5A
+		roomName=207
+
+二、获取特定月份的每日平均剩余电度
+  1、http://60.205.183.30/onepig/electricity/MonthDailyAverageFeeAction.action
+	参数：
+		roomName=5A207
+		year=2018
+		month=1~12
+
+三、html中请求校验邮箱：
+  1、http://60.205.183.30:8080/onepig/user/EmailAction_veritify.action
+	参数：
+		vertifyCode=xxxxxxxxxxxxx
+
+四、android
+  1、请求发送激活邮件：http://60.205.183.30:8080/onepig/user/EmailAction_check.action
+	参数：
+		email=1459049487@qq.com
+	测试：
+		http://localhost:8080/onepig/user/EmailAction_check.action?email=1459049487@qq.com
+  2、开启和关闭预警：http://60.205.183.30:8080/onepig/user/WarningAction.action
+	参数：
+		message=CSMessage json串
+	测试：
+		http://localhost:8080/onepig/user/WarningAction.action?message={"email":"1459049487@qq.com","on":"0","roomName":"5A207","warningValue":"10"}
+
+五、根据学号查询一卡通余额
+  1、获取查询余额需要的cookie：http://60.205.183.30:8080/onepig/card/refreshCookie.action
+	参数：
+		cookie=包含4个必须cookie的json
+  2、查询一卡通余额：http://60.205.183.30:8080/onepig/card/CardFeeAction.action
+	参数：
+		studentId=2015101973
+	测试：http://locahost:8080/onepig/card/CardFeeAction.action?studentId=2015101973

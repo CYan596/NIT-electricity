@@ -1,8 +1,9 @@
 <template>
 	<div>
-		<mt-header fixed title="南工校园助手-API测试页"></mt-header>
+		<mt-header fixed title="南昌工程学院校园助手-测试版"></mt-header>
+
 	</div>
-</template>   
+</template>
 
 <script>
 	import connect from '../connector.js';

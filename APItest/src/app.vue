@@ -1,14 +1,14 @@
 <template>
 	<div>
-		<headerVue></headerVue>
-		<footerVue></footerVue>	
+		<!-- <headerVue></headerVue> -->
+		<footerVue></footerVue>
 
-        <router-view></router-view>
+    <router-view></router-view>
 
 	</div>
-</template>   
+</template>
 
-<script>	
+<script>
 	import headerVue from './components/header.vue';
 	import footerVue from './components/footer.vue';
 	import connect from './connector.js';
@@ -41,7 +41,8 @@
 	margin: 0;
 }
 body{
-	padding-top: 40px;
+	/* padding-top: 40px; */
+	background-color: #f2f2f2;
 }
 mt-switch {
 	margin-top: 30px;
