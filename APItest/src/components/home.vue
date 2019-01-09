@@ -52,17 +52,24 @@
 		<!--B 小应用 -->
 		<div class="card flex-start-center" id="app-card">
 
-			<div class="app flex-center-column" id="appEat">
+			<div class="app flex-center-column" id="appEat" @click="stateID.appEat = true">
 				<img :src="libs.chifanLogo" alt="app" width="32">
 				<span class="font-light">今日吃啥</span>
 			</div>
 
-			<div class="app flex-center-column" id="appEat">
+			<div class="app flex-center-column" id="">
 					<img :src="libs.riliLogo" alt="" width="32">
 					<span class="font-light">校历</span>
 			</div>
 
-			<mt-popup class=""	v-model="stateID.appEat" popup-transition="popup-fade"></mt-popup>
+			<div class="app flex-center-column" id="">
+				<img :src="libs.dituLogo" alt="" width="32">
+				<span class="font-light">地图</span>
+			</div>
+
+			<mt-popup class=""	v-model="stateID.appEat" popup-transition="popup-fade">
+				今日吃啥
+			</mt-popup>
 			<mt-popup class=""	v-model="stateID.appCalendar" popup-transition="popup-fade"></mt-popup>
 		</div>
 		<!--E 小应用 -->
@@ -93,16 +100,36 @@
 					homeLogo:'../libs/shouye.svg',
 					moreLogo:'../libs/gengduo.svg',
 					chifanLogo:'../libs/chifan.svg',
+					dituLogo:'../libs/ditu.svg',
 					riliLogo:'../libs/rili.svg'
 				},
-				stateID:{
+				stateID:{ // 各弹窗显隐状态
 					appEat: false,
 					appCalendar: false
 				},
-				popupVisible:false //home弹窗
+				popupVisible:false, // home弹窗
+				cateArr:[ // 今日吃啥随机数组
+					'鲅鱼香菜',
+					'牛肉香菜',
+					'肉三鲜水饺',
+					'牛肉面',
+					'牛肉石锅拌饭',
+					'石锅辣鸡肉土豆',
+					'麻辣香锅',
+					'年糕',
+					'宽粉',
+					'青笋鸡公煲',
+					'红烧肉',
+					'炸鸡腿',
+					'干煸土豆片',
+					'麻婆豆腐',
+					'黄瓜腐竹',
+					'鱼香米线',
+					'玉米粉'
+				]
 			}
 		},
-		//声明函数，属于组件对象的
+		//声明函数，属于组件对象
 		methods:{
 			getDormitoryFee(){
 				var params = {
@@ -130,7 +157,7 @@
 				this.popupVisible = true
 			}
 		},
-		// 1、监听学号及寝室号输入框，若位数达到即发起请求获取数据
+		// 1, 监听学号及寝室号输入框，若位数达到即发起请求获取数据
 		watch:{
 			'popupForm.dormitory': function(newVal){
 				console.log('dormitory变化')
@@ -279,7 +306,7 @@
 }
 .card{
 	margin: 10px 0 0 0;
-	border: 1px solid #dbdbdb;
+	/* border: 1px solid #dbdbdb; */
 	border-radius: 6px;
 	box-shadow: 4px 4px 6px rgba(0,0,0,.1);
 }
