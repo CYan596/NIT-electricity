@@ -10,14 +10,14 @@ var config= {
     //出口
     output:{
         filename:'./build.js', //指定js文件
-        path: path.join(__dirname,'dist')          
+        path: path.join(__dirname,'dist')
         //最好是绝对路径
         //代表当前目录的上一级的dist
     },
     module:{
     	// 关于模块配置
         // 一样的功能rules:   webpack2.x之后新加的
-        rules: [       
+        rules: [
         	// 模块规则（配置 loader、解析器等选项）
             {
         		test:/\.css$/,
@@ -31,13 +31,15 @@ var config= {
 		        // - 尽量避免 exclude，更倾向于使用 include
             },{
 				test:/\.(jpg|svg|png|gif)$/,
-				loader:'url-loader?limit=4096&name=[name].[ext]',
-				//顺序是反过来的2!1 
+				loader:'url-loader',
+				//顺序是反过来的2!1
 				//[name].[ext]内置提供的，因为本身是先读这个文件
-				// options:{
-				//    limit:4096,
-				//    name:'[name].[ext]'
-				// }
+				options:{
+                    limit: 4096,
+                    outputPath: './img',
+                    publicPath: './img',
+                    name: 'img/[name].[hash:7].[ext]'
+				}
             },{//处理ES6的js
                 test:/\.js$/,
                 loader:'babel-loader',

@@ -1,10 +1,10 @@
 <template>
 	<div class="body">
-		<div id="header">
+		<!-- <div id="header">
 			<p class="header-p">南工助手</p>
-		</div>
+		</div> -->
 
-		<!-- <div class="card" id="weather-card"></div> -->
+
 		<div class="card" id="info-card">
 
 			<div class="flex-between-center">
@@ -46,9 +46,26 @@
 						<mt-button type="primary" style="width:75%;height:30px;background-color:#5387f4">确定</mt-button>
 					</div>
 			</mt-popup>
+
 		</div>
 
+		<!--B 小应用 -->
+		<div class="card flex-start-center" id="app-card">
 
+			<div class="app flex-center-column" id="appEat">
+				<img :src="libs.chifanLogo" alt="app" width="32">
+				<span class="font-light">今日吃啥</span>
+			</div>
+
+			<div class="app flex-center-column" id="appEat">
+					<img :src="libs.riliLogo" alt="" width="32">
+					<span class="font-light">校历</span>
+			</div>
+
+			<mt-popup class=""	v-model="stateID.appEat" popup-transition="popup-fade"></mt-popup>
+			<mt-popup class=""	v-model="stateID.appCalendar" popup-transition="popup-fade"></mt-popup>
+		</div>
+		<!--E 小应用 -->
 
 	</div>
 </template>
@@ -72,7 +89,15 @@
 					OCPbalance:'' //一卡通余额
 				},
 				libs:{
-					NITLogo:'../libs/NITLogo.png'
+					NITLogo:'../libs/NITLogo.png',
+					homeLogo:'../libs/shouye.svg',
+					moreLogo:'../libs/gengduo.svg',
+					chifanLogo:'../libs/chifan.svg',
+					riliLogo:'../libs/rili.svg'
+				},
+				stateID:{
+					appEat: false,
+					appCalendar: false
 				},
 				popupVisible:false //home弹窗
 			}
@@ -189,8 +214,8 @@
 		},
 		mounted:function () {
 			// console.log("mounted生命周期函数")
-			if(localStorage.getItem('stuId')&&localStorage.getItem('domitary')) {
-				console.log('已获取到本地存储');
+			if(localStorage.getItem('stuId')&&localStorage.getItem('domitary')&&!this.popupForm.dormitory) {
+				console.log('已获取到本地存储并且未加载');
 				this.popupForm.dormitory = localStorage.getItem('domitary')
 				this.popupForm.stuId = localStorage.getItem('stuId')
 			} else {
@@ -205,6 +230,7 @@
 	/* background-color: green; */
 	height: 50px;
 	padding: 10px;
+	font-size: 14px;
 }
 .separator{
 	height: 50px;
@@ -246,6 +272,11 @@
 	justify-content: space-between;
 	align-items: center;
 }
+.flex-start-center{
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
 .card{
 	margin: 10px 0 0 0;
 	border: 1px solid #dbdbdb;
@@ -259,6 +290,9 @@
 }
 .card .card-font-light{
 	font-weight: 100;
+	font-size: 12px;
+}
+.font-light{
 	font-size: 12px;
 }
 #weather-card{
@@ -325,5 +359,21 @@
 	width: 75%;
 	height: 30px;
 }
-
+#app-card{
+	padding: 0 10px;
+	height: 60px;
+	background: #fefefe;
+}
+.app{
+	width: 48px;
+	height: 54px;
+	margin-right: 5px;
+	/* border:1px solid #5387f4; */
+	border-radius: 3px;
+}
+.app .font-light{
+	padding-top: 4px;
+}
+#appEat{
+}
 </style>

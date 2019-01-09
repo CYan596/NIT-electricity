@@ -53,6 +53,13 @@ mt-switch {
 	-ms-align-items: center;
 	align-items: center;
 }
+.flex-center-column{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	-ms-align-items: center;
+	align-items: center;
+}
 .flex-space-between{
 	display: flex;
 	justify-content: space-between;
