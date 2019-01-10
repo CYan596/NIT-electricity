@@ -69,6 +69,7 @@
 
 			<mt-popup class=""	v-model="stateID.appEat" popup-transition="popup-fade">
 				<!-- 今日吃啥 -->
+				{{appEatData.randomCate}}
 			</mt-popup>
 			<mt-popup class="width-max"	v-model="stateID.appXiaoli" popup-transition="popup-fade">
 				<!-- 校历 -->
@@ -118,6 +119,10 @@
 					appXiaoli: false,
 					appDitu: false
 				},
+				appEatData:{
+					randomCate: '',
+					randomInterval: ''
+				},
 				popupVisible:false, // home弹窗
 				cateArr:[ // 今日吃啥随机数组
 					'鲅鱼香菜',
@@ -136,7 +141,9 @@
 					'麻婆豆腐',
 					'黄瓜腐竹',
 					'鱼香米线',
-					'玉米粉'
+					'玉米粉',
+					'黄焖鸡',
+					'炒年糕'
 				]
 			}
 		},
@@ -166,6 +173,19 @@
 			},
 			popup(){
 				this.popupVisible = true
+			},
+			randomNum(minNum,maxNum){
+				switch(arguments.length){
+						case 1:
+								return parseInt(Math.random()*minNum+1,10);
+						break;
+						case 2:
+								return parseInt(Math.random()*(maxNum-minNum+1)+minNum,10);
+						break;
+								default:
+										return 0;
+								break;
+				}
 			}
 		},
 		// 1, 监听学号及寝室号输入框，若位数达到即发起请求获取数据
@@ -248,6 +268,23 @@
 				});
 
 				// 获取一卡通余额
+			}
+			,'stateID.appEat':function(newVal){
+				let vueThis = this
+
+				if (newVal) {
+					// 启动随机渲染函数
+					vueThis.appEatData.randomInterval = setInterval(() => {
+						let randomNum = vueThis.randomNum(0, vueThis.cateArr.length - 1)
+						vueThis.appEatData.randomCate = vueThis.cateArr[randomNum]
+					}, 200);
+					// clearInterval(vueThis.appEatData.randomInterval);
+
+				}else {
+					// 关闭定时器
+					console.log('关闭定时器')
+					clearInterval(vueThis.appEatData.randomInterval);
+				}
 			}
 		},
 		mounted:function () {
