@@ -35,6 +35,8 @@
 	width: 100%;
 	height: 35px;
 	border-top: 1px solid #eee;
+	z-index: 2;
+	background-color: #fff;
 }
 .switch{
 	text-decoration: none;

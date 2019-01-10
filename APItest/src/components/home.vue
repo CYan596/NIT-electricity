@@ -82,6 +82,56 @@
 		</div>
 		<!--E 小应用 -->
 
+		<!--B 信息流 -->
+		<div id="home-tab-nav" class="flex-center font-bold">
+				<div class="nav-button-left flex-center  active">校务通知</div>
+				<div class="nav-button-right flex-center">信息聚合</div>
+		</div>
+
+		<mt-tab-container v-model="stateID.active" class="home-tab">
+				<!-- 校务通知 -->
+			<mt-tab-container-item id="tab-container1">
+				<div class="card-feed">
+					<div class="left flex-center">
+						<img :src="libs.xuexiaoLogo" alt="" width="28">
+					</div>
+					<div class="right">
+						<p><span>教务部</span>2019-01-07</p>
+						<p>关于2018-2019-2学期专门用途英语（ESP）课程选课的通知</p>
+					</div>
+				</div>
+
+				<div class="card-feed">
+					<div class="left flex-center">
+						<img :src="libs.xuexiaoLogo" alt="" width="28">
+					</div>
+					<div class="right">
+						<p><span>教务部</span>2019-01-07</p>
+						<p>关于2018-2019-2学期专门用途英语（ESP）课程选课的通知</p>
+					</div>
+				</div>
+
+				<div class="card-feed">
+					<div class="left flex-center">
+						<img :src="libs.xuexiaoLogo" alt="" width="28">
+					</div>
+					<div class="right">
+						<p><span>教务部</span>2019-01-07</p>
+						<p>关于2018-2019-2学期专门用途英语（ESP）课程选课的通知</p>
+					</div>
+				</div>
+
+
+
+			</mt-tab-container-item>
+			<!-- 信息聚合 -->
+			<mt-tab-container-item id="tab-container2">
+
+			</mt-tab-container-item>
+		</mt-tab-container>
+		<!--E 信息流 -->
+
+
 	</div>
 </template>
 
@@ -111,13 +161,15 @@
 					dituLogo:'../libs/ditu.svg',
 					riliLogo:'../libs/rili.svg',
 					guihuatu:'../libs/guihuatu.jpg',
-					xiaoli: '../libs/xiaoli.png'
+					xiaoli: '../libs/xiaoli.png',
+					xuexiaoLogo: '../libs/xuexiao.svg'
 				},
-				stateID:{ // 各弹窗显隐状态
+				stateID:{ // 各小部件状态标识
 					appEat: false,
 					appCalendar: false,
 					appXiaoli: false,
-					appDitu: false
+					appDitu: false,
+					active: 'tab-container1'
 				},
 				appEatData:{
 					randomCate: '',
@@ -370,6 +422,10 @@
 .font-light{
 	font-size: 12px;
 }
+.font-bold{
+	font-size: 14px;
+	font-weight: bold;
+}
 #weather-card{
 	height: 100px;
 }
@@ -451,4 +507,72 @@
 }
 #appEat{
 }
+.home-tab{
+	/* width: 96%; */
+	margin: 0 auto 40px auto;
+	/* padding: 6px; */
+	/* border:1px solid #ccc; */
+	/* border-radius: 6px; */
+	box-shadow: 4px 4px 6px rgba(0,0,0,.1);
+	background-color: #fff;
+}
+#home-tab-nav{
+	color: #555;
+	padding: 10px 0;
+	margin: 10px 0 0 0;
+	background-color: #fff;
+	border-radius: 4px 4px 0 0;
+	letter-spacing: 1.3px;
+}
+#home-tab-nav .nav-button-left,#home-tab-nav .nav-button-right{
+	height: 24px;
+	width: 49%;
+	border: 1px solid #ccc;
+}
+#home-tab-nav .nav-button-left{
+	border-radius: 4px 0 0 4px;
+	border-right: none;
+}
+#home-tab-nav .nav-button-right{
+	border-radius: 0 4px 4px 0;
+	border-left: none;
+}
+.nav-button-right.active,.nav-button-left.active{
+	background-color: #b5b5b5;
+	color: #fff;
+	box-shadow: 0 0 2px rgba(0,0,0,.1) inset;
+}
+/*B 信息流卡片 */
+
+.mint-tab-container{
+	border-radius: 0 0 6px 6px;
+}
+.card-feed{
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+	padding: 10px 0;
+	/* height: 20px; */
+	border-bottom: 1px solid #eee;
+}
+.card-feed .left{
+	width: 18%;
+}
+.card-feed .right{
+	display: inline;
+	width: 80%;
+}
+.card-feed p{
+	color: #666;
+	font-size: 14px;
+}
+.card-feed .right p:first-child{
+	text-align: right;
+}
+.card-feed .right span{
+	font-size: 14px;
+	float: left;
+	color: #333;
+}
+/*E 信息流卡片 */
 </style>
