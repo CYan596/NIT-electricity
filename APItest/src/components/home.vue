@@ -57,20 +57,27 @@
 				<span class="font-light">今日吃啥</span>
 			</div>
 
-			<div class="app flex-center-column" id="">
+			<div class="app flex-center-column" id="" @click="stateID.appXiaoli = true">
 					<img :src="libs.riliLogo" alt="" width="32">
 					<span class="font-light">校历</span>
 			</div>
 
-			<div class="app flex-center-column" id="">
+			<div class="app flex-center-column" id="" @click="stateID.appDitu = true">
 				<img :src="libs.dituLogo" alt="" width="32">
 				<span class="font-light">地图</span>
 			</div>
 
 			<mt-popup class=""	v-model="stateID.appEat" popup-transition="popup-fade">
-				今日吃啥
+				<!-- 今日吃啥 -->
 			</mt-popup>
-			<mt-popup class=""	v-model="stateID.appCalendar" popup-transition="popup-fade"></mt-popup>
+			<mt-popup class="width-max"	v-model="stateID.appXiaoli" popup-transition="popup-fade">
+				<!-- 校历 -->
+				<img :src="libs.xiaoli" alt="" width="100%">
+			</mt-popup>
+			<mt-popup class="width-max"	v-model="stateID.appDitu" popup-transition="popup-fade">
+				<!-- 地图 -->
+				<img :src="libs.guihuatu" alt="" width="100%">
+			</mt-popup>
 		</div>
 		<!--E 小应用 -->
 
@@ -101,11 +108,15 @@
 					moreLogo:'../libs/gengduo.svg',
 					chifanLogo:'../libs/chifan.svg',
 					dituLogo:'../libs/ditu.svg',
-					riliLogo:'../libs/rili.svg'
+					riliLogo:'../libs/rili.svg',
+					guihuatu:'../libs/guihuatu.jpg',
+					xiaoli: '../libs/xiaoli.png'
 				},
 				stateID:{ // 各弹窗显隐状态
 					appEat: false,
-					appCalendar: false
+					appCalendar: false,
+					appXiaoli: false,
+					appDitu: false
 				},
 				popupVisible:false, // home弹窗
 				cateArr:[ // 今日吃啥随机数组
@@ -375,7 +386,7 @@
 
 } */
 .width-max{
-	width: 100%;
+	width: 100% !important;
 }
 .mint-popup{
 	border-radius: 6px;
