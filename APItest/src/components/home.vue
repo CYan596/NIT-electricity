@@ -263,7 +263,8 @@
 		watch:{
 			'popupForm.dormitory': function(newVal){
 				console.log('dormitory变化')
-				const ElectricityFeeUrl ='http://60.205.183.30:8080/onepig/electricity/ElectricityAction_getElectricityFee.action';
+				// const ElectricityFeeUrl ='http://60.205.183.30:8080/onepig/electricity/ElectricityAction_getElectricityFee.action';
+				const ElectricityFeeUrl = 'http://60.205.183.30:8080/onepig/electricity/ElectricityAction.action'
 				var params = new URLSearchParams();
 				var buildingName = '',
 					roomName = '',
