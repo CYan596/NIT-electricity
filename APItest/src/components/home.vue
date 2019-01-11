@@ -4,6 +4,10 @@
 			<p class="header-p">南工助手</p>
 		</div> -->
 
+		<!--B 通知条 -->
+
+		<!--E 通知条 -->
+
 
 		<div class="card" id="info-card">
 
@@ -83,9 +87,12 @@
 		<!--E 小应用 -->
 
 		<!--B 信息流 -->
-		<div id="home-tab-nav" class="flex-center font-bold">
-				<div class="nav-button-left flex-center  active">校务通知</div>
-				<div class="nav-button-right flex-center">信息聚合</div>
+		<div id="home-tab-nav" class="flex-center-column font-bold">
+				<!-- <div class="nav-button-left flex-center  active">校务通知</div>
+				<div class="nav-button-right flex-center">信息聚合</div> -->
+			<!-- 校务通知 -->
+			<div class="title">校务通知</div>
+			<div class="decorate"></div>
 		</div>
 
 		<mt-tab-container v-model="stateID2.active" class="home-tab">
@@ -469,6 +476,7 @@
 }
 #info-card{
 	position: relative;
+	margin-top: 0;
 	padding: 10px;
 	height: 90px;
 	background-color: #5387f4;
@@ -556,11 +564,21 @@
 }
 #home-tab-nav{
 	color: #555;
-	padding: 10px 0;
+	padding: 10px 0 5px 0;
 	margin: 10px 0 0 0;
 	background-color: #fff;
 	border-radius: 4px 4px 0 0;
 	letter-spacing: 1.3px;
+}
+#home-tab-nav .title{
+	/* border-bottom: 1px #5387f4 solid; */
+}
+#home-tab-nav .decorate{
+	margin-top: 4px;
+	width: 16px;
+	height: 3.5px;
+	background-color: #5387f4;
+	border-radius: 2px;
 }
 #home-tab-nav .nav-button-left,#home-tab-nav .nav-button-right{
 	height: 24px;
@@ -611,6 +629,7 @@
 }
 .card-feed .right p:first-child{
 	text-align: right;
+	margin-bottom: 3px;
 }
 .card-feed .right span{
 	font-size: 14px;
