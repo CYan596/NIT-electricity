@@ -372,6 +372,20 @@
 			} else {
 				console.log('未获取到本地存储');
 			}
+
+			// 返回键锁定功能
+			let counter = 0;
+			if (window.history && window.history.pushState) {
+					$(window).on('popstate', function () {
+							window.history.pushState('forward', null, '#');
+							window.history.forward(1);
+							alert("不可回退");  //如果需在弹框就有它
+							// self.location="orderinfo.html"; //如查需要跳转页面就用它
+					});
+			}
+
+			window.history.pushState('forward', null, '#'); //在IE中必须得有这两行
+			window.history.forward(1);
 		}
 	}
 </script>
