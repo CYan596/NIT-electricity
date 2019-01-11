@@ -299,7 +299,7 @@
 				    params:params
 				}).then(function (response) {
 					console.log(response);
-					let DEbalance = JSON.parse(response.data).fee
+					let DEbalance = response.data.fee
 					vueThis.stuInfo.DEbalance = DEbalance + '度'
 				})
 				.catch(function (error) {
