@@ -299,7 +299,16 @@
 				    params:params
 				}).then(function (response) {
 					console.log(response);
-					let DEbalance = response.data.fee
+					let DEbalance
+					if(response.data.statusCode == 'DORMITORY_ILLEGAL'){
+						Toast({
+							message: '请输入正确的寝室号',
+							position: 'center',
+							duration: 5000
+						});
+					}else if(response.data.statusCode == 'SUCCESS'){
+						DEbalance = response.data.statusCode
+					}
 					vueThis.stuInfo.DEbalance = DEbalance + '度'
 				})
 				.catch(function (error) {
@@ -573,6 +582,7 @@
 }
 #home-tab-nav .title{
 	/* border-bottom: 1px #5387f4 solid; */
+	font-size:16px;
 }
 #home-tab-nav .decorate{
 	margin-top: 4px;
