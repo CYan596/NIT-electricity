@@ -307,7 +307,7 @@
 							duration: 5000
 						});
 					}else if(response.data.statusCode == 'SUCCESS'){
-						DEbalance = response.data.statusCode
+						DEbalance = response.data.fee
 					}
 					vueThis.stuInfo.DEbalance = DEbalance + '度'
 				})
@@ -369,6 +369,11 @@
 			}
 		},
 		mounted:function () {
+			Toast({
+							message: '请输入正确的寝室号',
+							position: 'center',
+							duration: 5000
+						});
 			let vueThis = this
 			// console.log("mounted生命周期函数")
 			if(localStorage.getItem('stuId')&&localStorage.getItem('domitary')&&!this.popupForm.dormitory) {
