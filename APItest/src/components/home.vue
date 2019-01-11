@@ -91,8 +91,8 @@
 		<mt-tab-container v-model="stateID.active" class="home-tab">
 				<!-- 校务通知 -->
 			<mt-tab-container-item id="tab-container1">
-				<div class="card-feed">
-					<div class="left flex-center">
+				<div class="card-feed"  position="right" @click="stateID.cardFeed1 = true">
+					<div class="left flex-center" >
 						<img :src="libs.xuexiaoLogo" alt="" width="28">
 					</div>
 					<div class="right">
@@ -100,6 +100,29 @@
 						<p>关于2018-2019-2学期专门用途英语（ESP）课程选课的通知</p>
 					</div>
 				</div>
+
+				<mt-popup
+					v-model="stateID.cardFeed1"
+					position="right" class="card-feed-popup">
+
+					<!-- <mt-header title="标题过长会隐藏后面的内容啊哈哈哈哈">
+							<mt-button icon="back" @click="stateID.cardFeed1 = false" >返回</mt-button>
+							<mt-button icon="more" slot="right"></mt-button>
+					</mt-header>
+
+					<mt-header title="多个按钮">
+						<router-link to="/" slot="left" @click="stateID.cardFeed1 = false">
+							<mt-button icon="back">返回</mt-button>
+							<mt-button @click="handleClose">关闭</mt-button>
+						</router-link>
+						<mt-button icon="more" slot="right"></mt-button>
+					</mt-header> -->
+					<mt-header title="通知详情">
+						<mt-button icon="back" @click="stateID.cardFeed1 = false" slot="left">返回</mt-button>
+					</mt-header>
+
+					cardFeed1
+				</mt-popup>
 
 				<div class="card-feed">
 					<div class="left flex-center">
@@ -169,7 +192,8 @@
 					appCalendar: false,
 					appXiaoli: false,
 					appDitu: false,
-					active: 'tab-container1'
+					active: 'tab-container1',
+					cardFeed1: false
 				},
 				appEatData:{
 					randomCate: '',
@@ -543,7 +567,12 @@
 	box-shadow: 0 0 2px rgba(0,0,0,.1) inset;
 }
 /*B 信息流卡片 */
-
+.card-feed-popup{
+	width: 100%;
+	height: 100%;
+	border-radius: 0;
+	padding: 0;
+}
 .mint-tab-container{
 	border-radius: 0 0 6px 6px;
 }

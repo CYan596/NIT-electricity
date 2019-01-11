@@ -39,6 +39,7 @@ let router = new VueRouter({
 	routes:[
 		// 一个个对象
 		{path: '/home',component: Home},
+		{path: '/',component: Home},
 		{path: '/about',component: About}
 	]
 })
