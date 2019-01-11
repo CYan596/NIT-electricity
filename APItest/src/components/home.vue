@@ -368,6 +368,7 @@
 				window.onpopstate = function(event) {
 					// alert("location: " + document.location + ", state: " + JSON.stringify(event.state));
 					counter++
+					history.pushState(null, null, document.URL)
 					for (var prop in vueThis.stateID) {
 						vueThis.stateID[prop] = false
 					}
