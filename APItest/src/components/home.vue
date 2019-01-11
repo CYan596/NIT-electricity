@@ -88,7 +88,7 @@
 				<div class="nav-button-right flex-center">信息聚合</div>
 		</div>
 
-		<mt-tab-container v-model="stateID.active" class="home-tab">
+		<mt-tab-container v-model="stateID2.active" class="home-tab">
 				<!-- 校务通知 -->
 			<mt-tab-container-item id="tab-container1">
 				<div class="card-feed"  position="right" @click="stateID.cardFeed1 = true">
@@ -104,23 +104,9 @@
 				<mt-popup
 					v-model="stateID.cardFeed1"
 					position="right" class="card-feed-popup">
-
-					<!-- <mt-header title="标题过长会隐藏后面的内容啊哈哈哈哈">
-							<mt-button icon="back" @click="stateID.cardFeed1 = false" >返回</mt-button>
-							<mt-button icon="more" slot="right"></mt-button>
-					</mt-header>
-
-					<mt-header title="多个按钮">
-						<router-link to="/" slot="left" @click="stateID.cardFeed1 = false">
-							<mt-button icon="back">返回</mt-button>
-							<mt-button @click="handleClose">关闭</mt-button>
-						</router-link>
-						<mt-button icon="more" slot="right"></mt-button>
-					</mt-header> -->
 					<mt-header title="通知详情">
 						<mt-button icon="back" @click="stateID.cardFeed1 = false" slot="left">返回</mt-button>
 					</mt-header>
-
 					cardFeed1
 				</mt-popup>
 
@@ -187,13 +173,15 @@
 					xiaoli: '../libs/xiaoli.png',
 					xuexiaoLogo: '../libs/xuexiao.svg'
 				},
-				stateID:{ // 各小部件状态标识
+				stateID:{ // 弹窗部件状态标识
 					appEat: false,
 					appCalendar: false,
 					appXiaoli: false,
 					appDitu: false,
-					active: 'tab-container1',
 					cardFeed1: false
+				},
+				stateID2:{ // 非弹窗部件状态标识
+					active: 'tab-container1',
 				},
 				appEatData:{
 					randomCate: '',
@@ -364,6 +352,7 @@
 			}
 		},
 		mounted:function () {
+			let vueThis = this
 			// console.log("mounted生命周期函数")
 			if(localStorage.getItem('stuId')&&localStorage.getItem('domitary')&&!this.popupForm.dormitory) {
 				console.log('已获取到本地存储并且未加载');
@@ -374,16 +363,26 @@
 			}
 
 			// 返回键锁定功能
-			let counter = 0;
+			let counter = 0; // 返回键点击次数
 			if (window.history && window.history.pushState) {
-					$(window).on('popstate', function () {
-							window.history.pushState('forward', null, '#');
-							window.history.forward(1);
-							alert("不可回退");  //如果需在弹框就有它
-							// self.location="orderinfo.html"; //如查需要跳转页面就用它
-					});
-			}
+				window.onpopstate = function(event) {
+					// alert("location: " + document.location + ", state: " + JSON.stringify(event.state));
+					counter++
+					for (var prop in vueThis.stateID) {
+						vueThis.stateID[prop] = false
+					}
+					console.log(counter)
+					console.log(vueThis.stateID)
+				};
+					// $(window).on('popstate', function () {
+					// 		window.history.pushState('forward', null, '#');
+					// 		window.history.forward(1);
+					// 		alert("不可回退");  //如果需在弹框就有它
+					// 		// self.location="orderinfo.html"; //如查需要跳转页面就用它
+					// });
 
+					// 将stateID注册的所有弹窗关闭
+			}
 			window.history.pushState('forward', null, '#'); //在IE中必须得有这两行
 			window.history.forward(1);
 		}
