@@ -19,7 +19,7 @@
 						姓名：{{stuInfo.stuName}}
 					</p>
 					<p class="width-max">
-						一卡通余额: {{stuInfo.OCPbalance}}
+						一卡通余额:<span class="">{{stuInfo.OCPbalance}}</span>
 					</p>
 				</div>
 				<div class="separator"></div>
@@ -44,12 +44,12 @@
 			<mt-popup	v-model="popupVisible" popup-transition="popup-fade">
 				<!-- 弹出框内容 -->
 					<mt-field label="寝室号" placeholder="例：5a207" v-model="popupForm.dormitory"></mt-field>
-					<mt-field label="学号" placeholder="请输入学号"  v-model="popupForm.stuId"></mt-field>
+					<mt-field label="学号" placeholder="请输入学号"  v-model="popupForm.stuId" ></mt-field>
 					<!-- <mt-cell title="电费余额" value="请先输入寝室号"></mt-cell>
 					<mt-cell title="一卡通余额" value="请先输入学号"></mt-cell> -->
-
+					<!-- @keyup.enter="onEnter" -->
 					<div id='home-submit-Btn' class="flex-center" @click="popupVisible = false">
-						<mt-button type="primary" style="width:75%;height:30px;background-color:#5387f4">确定</mt-button>
+						<mt-button type="primary"  style="width:75%;height:30px;background-color:#5387f4">确定</mt-button>
 					</div>
 			</mt-popup>
 
@@ -60,23 +60,28 @@
 
 			<div class="app flex-center-column" id="appEat" @click="stateID.appEat = true">
 				<img :src="libs.chifanLogo" alt="app" width="32">
-				<span class="font-light">今日吃啥</span>
+				<span class="font-s">今日吃啥</span>
 			</div>
 
 			<div class="app flex-center-column" id="" @click="stateID.appXiaoli = true">
 					<img :src="libs.riliLogo" alt="" width="32">
-					<span class="font-light">校历</span>
+					<span class="font-s">校历</span>
 			</div>
 
 			<div class="app flex-center-column" id="" @click="stateID.appDitu = true">
 				<img :src="libs.dituLogo" alt="" width="32">
-				<span class="font-light">地图</span>
+				<span class="font-s">地图</span>
 			</div>
 
-			<mt-popup class=""	v-model="stateID.appEat" popup-transition="popup-fade">
+			<mt-popup class="flex-center-column font-bold font-l"	v-model="stateID.appEat" popup-transition="popup-fade">
 				<!-- 今日吃啥 -->
 				{{appEatData.randomCate}}
+				<!-- xxx暂停 -->
+				<mt-button type="primary" @click="appEatPause" class="font-s" style="margin-top: 25px;width:75%;height:30px;background-color:#5387f4">
+					{{appEatData.timerStatus}}
+				</mt-button>
 			</mt-popup>
+
 			<mt-popup class="width-max"	v-model="stateID.appXiaoli" popup-transition="popup-fade">
 				<!-- 校历 -->
 				<img :src="libs.xiaoli" alt="" width="100%">
@@ -194,7 +199,8 @@
 				},
 				appEatData:{
 					randomCate: '',
-					randomInterval: ''
+					randomInterval: '',
+					timerStatus: '暂停'
 				},
 				popupVisible:false, // home弹窗
 				cateArr:[ // 今日吃啥随机数组
@@ -259,6 +265,22 @@
 										return 0;
 								break;
 				}
+			},
+			appEatPause(){ // appEat随机的暂停与重启
+				let vueThis = this
+				const timer = this.appEatData.randomInterval
+				if(timer){	// 定时器启动状态
+					clearInterval(this.appEatData.randomInterval)
+					this.appEatData.randomInterval = null
+					vueThis.appEatData.timerStatus = '开始'
+				}else {  // 定时器关闭状态
+					this.appEatData.randomInterval = setInterval(() => {
+					let randomNum = vueThis.randomNum(0, vueThis.cateArr.length - 1)
+					vueThis.appEatData.randomCate = vueThis.cateArr[randomNum]
+					vueThis.appEatData.timerStatus = '暂停'
+					}, 150);
+				}
+				// console.log(this.appEatData.randomInterval)
 			}
 		},
 		// 1, 监听学号及寝室号输入框，若位数达到即发起请求获取数据
@@ -312,7 +334,7 @@
 							position: 'center',
 							duration: 3000
 						});
-						alert('请输入正确的寝室号')
+						// alert('请输入正确的寝室号')
 					}else if(response.data.statusCode == 'SUCCESS'){
 						DEbalance = response.data.fee
 					  vueThis.stuInfo.DEbalance = DEbalance + '度'
@@ -397,7 +419,7 @@
 					vueThis.appEatData.randomInterval = setInterval(() => {
 						let randomNum = vueThis.randomNum(0, vueThis.cateArr.length - 1)
 						vueThis.appEatData.randomCate = vueThis.cateArr[randomNum]
-					}, 200);
+					}, 150);
 					// clearInterval(vueThis.appEatData.randomInterval);
 
 				}else {
@@ -419,7 +441,7 @@
 			} else {
 				// console.log('未获取到本地存储');
 				vueThis.$toast({
-					message: '第一次使用需要输入信息哦 _(:3」∠)_',
+					message: '第一次使用需先编辑个人信息 _(:3」∠)_',
 					position: 'center',
 					duration: 4000
 				});
@@ -516,15 +538,18 @@
 	font-size: 18px;
 	/* text-shadow: 0px 0px 6px rgba(0,0,0,.1); */
 }
-.card .card-font-light{
+.card .card-font-s{
 	font-weight: 100;
 	font-size: 12px;
 }
-.font-light{
+.font-s{
 	font-size: 12px;
 }
+.font-l{
+	font-size: 16px;
+}
 .font-bold{
-	font-size: 14px;
+	/* font-size: 14px; */
 	font-weight: bold;
 }
 #weather-card{
@@ -607,7 +632,7 @@
 	/* border:1px solid #5387f4; */
 	border-radius: 3px;
 }
-.app .font-light{
+.app .font-s{
 	padding-top: 4px;
 }
 #appEat{
