@@ -262,13 +262,15 @@
 		// 1, 监听学号及寝室号输入框，若位数达到即发起请求获取数据
 		watch:{
 			'popupForm.dormitory': function(newVal){
-				console.log('dormitory变化')
+				// console.log('dormitory变化')
 				// const ElectricityFeeUrl ='http://60.205.183.30:8080/onepig/electricity/ElectricityAction_getElectricityFee.action';
 				const ElectricityFeeUrl = 'http://60.205.183.30:8080/onepig/electricity/ElectricityAction.action'
 				var params = new URLSearchParams();
 				var buildingName = '',
-					roomName = '',
-					vueThis = this
+					roomName = ''
+				let vueThis = this
+
+				console.log(vueThis);
 
 				if (newVal.length==5){ //判断寝室号是否合法
 					buildingName = newVal.slice(0, 2),
@@ -301,11 +303,14 @@
 					console.log(response);
 					let DEbalance
 					if(response.data.statusCode == 'DORMITORY_ILLEGAL'){
-						Toast({
-							message: '请输入正确的寝室号',
-							position: 'center',
-							duration: 5000
-						});
+						console.log(vueThis);
+
+						// vueThis.$toast({
+						// 	message: '请输入正确的寝室号',
+						// 	position: 'center',
+						// 	duration: 3000
+						// });
+						// alert('请输入正确的寝室号')
 					}else if(response.data.statusCode == 'SUCCESS'){
 						DEbalance = response.data.fee
 					}
@@ -340,9 +345,18 @@
 				    url:stuFeeUrl,
 				    params:params
 				}).then(function (response) {
-					console.log(response);
-					let OCPbalanceArr = response.data.OCPbalance
-					vueThis.stuInfo.OCPbalance = OCPbalanceArr[OCPbalanceArr.length - 1].balance + '元'
+
+					if(!response.data){
+						vueThis.$toast({
+							message: '请输入正确的学号',
+							position: 'center',
+							duration: 5000
+						});
+					}else {
+						console.log(response);
+						let OCPbalanceArr = response.data.OCPbalance
+						vueThis.stuInfo.OCPbalance = OCPbalanceArr[OCPbalanceArr.length - 1].balance + '元'
+					}
 				})
 				.catch(function (error) {
 					console.log(error);
@@ -369,19 +383,16 @@
 			}
 		},
 		mounted:function () {
-			Toast({
-							message: '请输入正确的寝室号',
-							position: 'center',
-							duration: 5000
-						});
+
+
 			let vueThis = this
-			// console.log("mounted生命周期函数")
-			if(localStorage.getItem('stuId')&&localStorage.getItem('domitary')&&!this.popupForm.dormitory) {
-				console.log('已获取到本地存储并且未加载');
+			console.log(vueThis.popupForm.dormitory)
+			if(localStorage.getItem('stuId')&&localStorage.getItem('domitary')&&!vueThis.popupForm.dormitory) {
+				// console.log('已获取到本地存储并且未加载');
 				this.popupForm.dormitory = localStorage.getItem('domitary')
 				this.popupForm.stuId = localStorage.getItem('stuId')
 			} else {
-				console.log('未获取到本地存储');
+				// console.log('未获取到本地存储');
 			}
 
 			// 返回键锁定功能
