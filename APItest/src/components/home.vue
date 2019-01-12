@@ -10,24 +10,26 @@
 
 
 		<div class="card" id="info-card">
-
 			<div class="flex-between-center">
 				<div class="left flex-center-column">
-					<div class="card-font-light width-max">
+					<p class=" width-max">
 						学号：{{stuId}}
-					</div>
-					<div class="width-max">
-						一卡通余额: <span class="card-font-dark">{{stuInfo.OCPbalance}}</span>
-					</div>
+					</p>
+					<p class=" width-max">
+						姓名：{{stuInfo.stuName}}
+					</p>
+					<p class="width-max">
+						一卡通余额: {{stuInfo.OCPbalance}}
+					</p>
 				</div>
 				<div class="separator"></div>
 				<div class="right flex-center-column">
-					<div class="card-font-light width-max">
+					<p class=" width-max">
 						寝室号：{{dormitory}}
-					</div>
-					<div class="width-max">
+					</p>
+					<p class="width-max">
 						电费余额: <span class="card-font-dark">{{stuInfo.DEbalance}}</span>
-					</div>
+					</p>
 				</div>
 			</div>
 
@@ -158,7 +160,7 @@
 		//data是一个函数，返回一个对象.
 		data(){
 			return {
-				popupForm:{
+				popupForm:{ // 编辑表单中的学号/寝室号
 					dormitory:'',
 					stuId:''
 				},
@@ -305,21 +307,32 @@
 					if(response.data.statusCode == 'DORMITORY_ILLEGAL'){
 						console.log(vueThis);
 
-						// vueThis.$toast({
-						// 	message: '请输入正确的寝室号',
-						// 	position: 'center',
-						// 	duration: 3000
-						// });
-						// alert('请输入正确的寝室号')
+						vueThis.$toast({
+							message: '请输入正确的寝室号',
+							position: 'center',
+							duration: 3000
+						});
+						alert('请输入正确的寝室号')
 					}else if(response.data.statusCode == 'SUCCESS'){
 						DEbalance = response.data.fee
+					  vueThis.stuInfo.DEbalance = DEbalance + '度'
+
+						vueThis.$toast({
+							message: '更新成功 ╭( ･ิ ω･ิ )╯',
+							position: 'top',
+							duration: 2500
+						});
 					}
-					vueThis.stuInfo.DEbalance = DEbalance + '度'
+
 				})
 				.catch(function (error) {
 					console.log(error);
 					console.log(response);
-
+					vueThis.$toast({
+							message: '电波无法到达哟 _(:3」∠)_',
+							position: 'center',
+							duration: 4000
+						});
 				});
 			},
 			'popupForm.stuId': function(newVal){
@@ -356,10 +369,22 @@
 						console.log(response);
 						let OCPbalanceArr = response.data.OCPbalance
 						vueThis.stuInfo.OCPbalance = OCPbalanceArr[OCPbalanceArr.length - 1].balance + '元'
+						vueThis.stuInfo.stuName = response.data.stuName
+
+						vueThis.$toast({
+							message: '更新成功 ╭( ･ิ ω･ิ )╯',
+							position: 'top',
+							duration: 3000
+						});
 					}
 				})
 				.catch(function (error) {
 					console.log(error);
+					vueThis.$toast({
+							message: '电波无法到达哟 _(:3」∠)_',
+							position: 'center',
+							duration: 4000
+						});
 				});
 
 				// 获取一卡通余额
@@ -393,6 +418,11 @@
 				this.popupForm.stuId = localStorage.getItem('stuId')
 			} else {
 				// console.log('未获取到本地存储');
+				vueThis.$toast({
+					message: '第一次使用需要输入信息哦 _(:3」∠)_',
+					position: 'center',
+					duration: 4000
+				});
 			}
 
 			// 返回键锁定功能
@@ -524,7 +554,7 @@
 	border-radius: 100%;
 }
 #info-card > #setting{
-	margin-top: 10px;
+	margin-top: 6px;
 	height: 26px;
 	background-color:#5387f4;
 	color: #fff;
@@ -541,9 +571,12 @@
 	border-radius: 100%;
 } */
 #info-card .left, #info-card .right{
-	height: 45px;
+	/* height: 45px; */
 	width: 45%;
 	color: #fff;
+}
+#info-card .left p, #info-card .right p{
+	margin: 1px 0 0 0;
 }
 /* #info-card .left{
 }
