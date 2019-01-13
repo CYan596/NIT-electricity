@@ -30,6 +30,14 @@
             "all_frames": true,
             "matches": ["http://life.ccb.com/tran/*"],
             "js": ["js/content.js"]
+        },{
+            "all_frames": true,
+            "matches": ["http://jw.nit.edu.cn/index.htm"],
+            "js": ["js/NIT_content.js"]
+        },{
+            "all_frames": true,
+            "matches": ["http://jw.nit.edu.cn/info/*"],
+            "js": ["js/NIT_article_content.js"]
         }
     ],
     "background": {

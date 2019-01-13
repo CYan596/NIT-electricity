@@ -5,23 +5,44 @@
 // 插件基础配置
 var crawlerConfig = {
 	currentID: 2017103574,
-	buffer: []
+	buffer: [],
+	stateCode:{}
 }
 
 var localConfig = {
-	url: 'http://localhost:3000/ccb'
+	url: 'http://localhost:3000/ccb',
+	articleList: 'http://localhost:3000/NITArticleList'
 }
 
-// 接收来自content的信息，返回phone
+// 接收并判断来自content的信息
+// flag判断码 1:articleList 2:article 3:接收学生信息 4：请求id
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse)
 {
-    if(JSON.stringify(request) !== "{}"){
-			postData(request, localConfig.url)
-			// console.log(request)
-    //如果返回对象为空，则传回需要查询的学生id
-    }else {
-			sendResponse(getStuID());
-    }
+
+	console.log(request)
+	// if(request.flag == 1){
+
+	// }else if(request == "{}"){   // 如果返回对象不为空，则上传学生信息
+	// 	postData(request, localConfig.url)
+	// }else { // 如果返回对象为空，则传回需要查询的学生id
+	// 	sendResponse(getStuID());
+	// }
+	switch (request.flag) {
+		case 1: {
+			console.log(request.articleArr)
+			postData(request.articleArr, localConfig.articleList)
+		}
+			break;
+		case 2: console.log('article')
+			break;
+		case 3: postData(request.stuInfo, localConfig.url)
+			break;
+		case 4: sendResponse(getStuID());
+			break;
+
+		default:
+			break;
+	}
 });
 
 // 将数据传输到mainServer

@@ -16,15 +16,24 @@ var app = express()
 // 	OCPbalance: 1.1
 // }
 
-// 测试区域
 
-// 测试区域
+// 南工文章爬虫传输接口
+var articleListStr = ''
 
 app.get('/home', function (req, res) {
     // console.log(req)
 
     res.writeHead(200,{'Content-Type':'text/html;charset=utf-8'});
     res.end('<b>正在进入 主服务器...</b>');
+});
+
+app.get('/articleList', function (req, res) {
+    // console.log(req)
+    res.writeHead(200,{
+        'Content-Type':'text/html;charset=utf-8',
+        'Access-Control-Allow-Origin': '*'
+    });
+    res.end(articleListStr);
 });
 
 app.get('/basicdata', function (req, res) {
@@ -78,6 +87,40 @@ app.post('/ccb', function (req, res) {
         // console.log(str)
     	mongodb.stuMongoUpdate(JSON.parse(str))
 
+    })
+    res.end()
+});
+
+
+
+// 南工文章列表爬虫传输接口
+app.post('/NITArticleList', function (req, res) {
+
+    // 接收到文章信息后 保存文件到lib文件夹
+    // 处理payload数据
+    var str = ''
+    req.on("data",function(dt){
+        str+=dt
+    })
+    req.on("end",function(){
+        articleListStr = str
+    })
+    res.end()
+});
+
+app.post('/NITArticle', function (req, res) {
+
+    // 接收到文章信息后 保存文件到lib文件夹
+    // 处理payload数据
+    var str = ''
+    req.on("data",function(dt){
+        str+=dt
+    })
+    req.on("end",function(){
+        // console.log(str)
+        if (JSON.parse(str)) {
+
+        }
     })
     res.end()
 });

@@ -52,7 +52,7 @@ function step(){
 		setTimeout(step, 15000)
 	}else if(ccbConfig.pageState[0]&&BANK_COD.value!==''){ //在填信息页面且已经填入省份
 		console.log('在填信息页面且已经填入省份')
-		chrome.runtime.sendMessage({}, function(response) {
+		chrome.runtime.sendMessage({flag = 4}, function(response) { //获取background给的ID
 		    COMMInput.value = response
 			btn1.click()
 		});
@@ -67,7 +67,10 @@ function step(){
 	}
 
 
-		chrome.runtime.sendMessage(stuInfo, function(response) {});
+		chrome.runtime.sendMessage({
+			flag:2,
+			stuInfo
+		}, function(response) {});
 
 		console.log(stuInfo)
 

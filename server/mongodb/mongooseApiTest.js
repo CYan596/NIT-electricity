@@ -174,6 +174,20 @@ function stuMongoFind(params, callback) {
 // 	console.log(x)
 // }
 
+// NIT文章数据库
+// 设计模式
+// var Schema = mongoose.Schema;
+var articleScheme = new Schema({
+		title:  String,
+		time: String,
+		id: Number,
+		html: String
+});
+// }
+// 将文档结构发布为model (模型)
+var articleModel = mongoose.model('articleScheme', stuSchema);
+
+
 // 导出操纵对象至main.js主业务模块代码中使用
 exports.stuMongoSave = stuMongoSave;
 exports.stuMongoUpdate = stuMongoUpdate;

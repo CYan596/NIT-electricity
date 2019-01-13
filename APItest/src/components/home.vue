@@ -58,7 +58,7 @@
 		<!--B 小应用 -->
 		<div class="card flex-start-center" id="app-card">
 
-			<div class="app flex-center-column" id="appEat" @click="stateID.appEat = true">
+			<div class="app flex-center-column" id="appEat" @click="stateID.appEat = true;appEatData.timerStatus='暂停'">
 				<img :src="libs.chifanLogo" alt="app" width="32">
 				<span class="font-s">今日吃啥</span>
 			</div>
@@ -103,9 +103,10 @@
 		</div>
 
 		<mt-tab-container v-model="stateID2.active" class="home-tab">
-				<!-- 校务通知 -->
+			<!-- 校务通知信息流 -->
 			<mt-tab-container-item id="tab-container1">
-				<div class="card-feed"  position="right" @click="stateID.cardFeed1 = true">
+
+				<!-- <div class="card-feed"  position="right" @click="stateID.cardFeed1 = true">
 					<div class="left flex-center" >
 						<img :src="libs.xuexiaoLogo" alt="" width="28">
 					</div>
@@ -113,6 +114,20 @@
 						<p><span>教务部</span>2019-01-07</p>
 						<p>关于2018-2019-2学期专门用途英语（ESP）课程选课的通知</p>
 					</div>
+				</div> -->
+
+				<div v-for="i in articleList">
+
+					<div class="card-feed"  position="right" @click="stateID.cardFeed1 = true">
+						<div class="left flex-center" >
+							<img :src="libs.xuexiaoLogo" alt="" width="28">
+						</div>
+						<div class="right">
+							<p><span>教务部</span>{{i.time}}</p>
+							<p>{{i.title}}</p>
+						</div>
+					</div>
+
 				</div>
 
 				<mt-popup
@@ -123,28 +138,6 @@
 					</mt-header>
 					cardFeed1
 				</mt-popup>
-
-				<div class="card-feed">
-					<div class="left flex-center">
-						<img :src="libs.xuexiaoLogo" alt="" width="28">
-					</div>
-					<div class="right">
-						<p><span>教务部</span>2019-01-07</p>
-						<p>关于2018-2019-2学期专门用途英语（ESP）课程选课的通知</p>
-					</div>
-				</div>
-
-				<div class="card-feed">
-					<div class="left flex-center">
-						<img :src="libs.xuexiaoLogo" alt="" width="28">
-					</div>
-					<div class="right">
-						<p><span>教务部</span>2019-01-07</p>
-						<p>关于2018-2019-2学期专门用途英语（ESP）课程选课的通知</p>
-					</div>
-				</div>
-
-
 
 			</mt-tab-container-item>
 			<!-- 信息聚合 -->
@@ -202,14 +195,14 @@
 					randomInterval: '',
 					timerStatus: '暂停'
 				},
-				popupVisible:false, // home弹窗
+				popupVisible: false, // home弹窗
+				articleList: [], // 文章列表数组
 				cateArr:[ // 今日吃啥随机数组
 					'鲅鱼香菜',
 					'牛肉香菜',
 					'肉三鲜水饺',
 					'牛肉面',
 					'牛肉石锅拌饭',
-					'石锅辣鸡肉土豆',
 					'麻辣香锅',
 					'年糕',
 					'宽粉',
@@ -222,10 +215,17 @@
 					'鱼香米线',
 					'玉米粉',
 					'黄焖鸡',
-					'炒年糕'
+					'炒年糕',
+					'炸酱面',
+					'刀削面'
 				]
 			}
 		},
+		computed:{
+      asyncData:function () {
+        return this.articleList||''
+      }
+    },
 		//声明函数，属于组件对象
 		methods:{
 			getDormitoryFee(){
@@ -247,7 +247,6 @@
 				.catch(function (error) {
 					console.log(error);
 					console.log(response);
-
 				});
 			},
 			popup(){
@@ -431,7 +430,6 @@
 		},
 		mounted:function () {
 
-
 			let vueThis = this
 			console.log(vueThis.popupForm.dormitory)
 			if(localStorage.getItem('stuId')&&localStorage.getItem('domitary')&&!vueThis.popupForm.dormitory) {
@@ -460,17 +458,21 @@
 					console.log(counter)
 					console.log(vueThis.stateID)
 				};
-					// $(window).on('popstate', function () {
-					// 		window.history.pushState('forward', null, '#');
-					// 		window.history.forward(1);
-					// 		alert("不可回退");  //如果需在弹框就有它
-					// 		// self.location="orderinfo.html"; //如查需要跳转页面就用它
-					// });
-
-					// 将stateID注册的所有弹窗关闭
 			}
 			window.history.pushState('forward', null, '#'); //在IE中必须得有这两行
 			window.history.forward(1);
+
+			// 信息流数据初始化
+			//
+			this.$axios.get('http://119.23.242.116:3000/articleList')
+				.then(function (response) {
+					console.log(response);
+					vueThis.articleList = response.data
+				})
+				.catch(function (error) {
+					console.log(error);
+					console.log(response);
+				});
 		}
 	}
 </script>
