@@ -19,6 +19,10 @@ chrome.runtime.sendMessage({
 });
 
 var count = 0
+
+setTimeout(() => {
+  location.reload()
+}, 86400000);
 // for (let j = 0; j < articleArr.length; j++) {
 //   const element = array[j];
 // }

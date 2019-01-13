@@ -116,9 +116,10 @@
 					</div>
 				</div> -->
 
+				<!-- stateID.cardFeed1 = true; -->
 				<div v-for="i in articleList">
 
-					<div class="card-feed"  position="right" @click="stateID.cardFeed1 = true">
+					<div class="card-feed"  position="right" v-on:click="windowOpen(i.href)">
 						<div class="left flex-center" >
 							<img :src="libs.xuexiaoLogo" alt="" width="28">
 						</div>
@@ -130,14 +131,14 @@
 
 				</div>
 
-				<mt-popup
+				<!-- <mt-popup
 					v-model="stateID.cardFeed1"
 					position="right" class="card-feed-popup">
 					<mt-header title="通知详情">
 						<mt-button icon="back" @click="stateID.cardFeed1 = false" slot="left">返回</mt-button>
 					</mt-header>
 					cardFeed1
-				</mt-popup>
+				</mt-popup> -->
 
 			</mt-tab-container-item>
 			<!-- 信息聚合 -->
@@ -228,6 +229,9 @@
     },
 		//声明函数，属于组件对象
 		methods:{
+			windowOpen(href){
+				window.open(href)
+			},
 			getDormitoryFee(){
 				var params = {
 			      method: 'getFee',
