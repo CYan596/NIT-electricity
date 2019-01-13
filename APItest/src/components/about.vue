@@ -6,12 +6,13 @@
 				<p>(๑•̀ㅂ•́)و✧</p>
 			</div>
 		</div>
-		<mt-cell title="此项目的开发日志" label="将跳转到知乎 · 更新与开发日志" is-link
-		to="https://www.zhihu.com/people/zhu-ke-qing-90/activities"
+		<mt-cell title="此项目的开发日志" label="将跳转到知乎，南工助手·更新与开发日志" is-link
+		to="https://zhuanlan.zhihu.com/p/54758094"
 		></mt-cell>
-		<mt-cell title="建议与意见" label="将跳转到知乎 · 建议与意见（请在评论区留言）" is-link
-		to="https://www.zhihu.com/people/zhu-ke-qing-90/activities"
-		></mt-cell>
+
+		<!-- <mt-cell title="建议与意见" label="将跳转到知乎，南工助手·更新与开发日志" is-link
+		to="https://zhuanlan.zhihu.com/p/54758094"
+		></mt-cell> -->
 
 	</div>
 </template>
