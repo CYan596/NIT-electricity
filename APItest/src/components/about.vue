@@ -2,8 +2,8 @@
 	<div class="body">
 		<div class="card flex-center" id="board-card">
 			<div>
-				<p>显然，我们需要一套好看的图标</p>
-				<p>你愿意帮助我们吗</p>
+				<p>小程序版本尚在开发中，敬请期待 </p>
+				<p>(๑•̀ㅂ•́)و✧</p>
 			</div>
 		</div>
 		<mt-cell title="此项目的开发日志" label="将跳转到知乎 · 更新与开发日志" is-link
@@ -34,7 +34,8 @@
 	/* color: #fff;
 	background-color: green;
 	height: 50px; */
-	padding: 0 10px;
+	background-color: #fff;
+	padding: 10px 10px;
 }
 .card{
 	color: #fff;
