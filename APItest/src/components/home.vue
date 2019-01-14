@@ -19,7 +19,7 @@
 						姓名：{{stuInfo.stuName}}
 					</p>
 					<p class="width-max">
-						一卡通余额:<span class="">{{stuInfo.OCPbalance}}</span>
+						一卡通余额:<span class="card-font-dark">{{stuInfo.OCPbalance}}</span>
 					</p>
 				</div>
 				<div class="separator"></div>
@@ -548,7 +548,8 @@
 }
 .card .card-font-dark{
 	font-weight: bold;
-	font-size: 18px;
+	/* font-size: 18px; */
+	color: #ff9b16;
 	/* text-shadow: 0px 0px 6px rgba(0,0,0,.1); */
 }
 .card .card-font-s{
