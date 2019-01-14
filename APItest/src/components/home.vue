@@ -39,12 +39,12 @@
 
 			<div class="rotundity"></div> -->
 
-			<mt-button type="primary"  v-on:click="popup" id="setting">编辑个人信息</mt-button>
+			<img :src="libs.bianjiLogo" alt="" width="22" v-on:click="popup" id="setting">
 
 			<mt-popup	v-model="popupVisible" popup-transition="popup-fade">
 				<!-- 弹出框内容 -->
-					<mt-field label="寝室号" placeholder="例：5a207" v-model="popupForm.dormitory"></mt-field>
-					<mt-field label="学号" placeholder="请输入学号"  v-model="popupForm.stuId" ></mt-field>
+					<mt-field label="寝室号" placeholder="例：1A101" v-model="popupForm.dormitory"></mt-field>
+					<mt-field label="学号" placeholder="例：2015100001"  v-model="popupForm.stuId" ></mt-field>
 					<!-- <mt-cell title="电费余额" value="请先输入寝室号"></mt-cell>
 					<mt-cell title="一卡通余额" value="请先输入学号"></mt-cell> -->
 					<!-- @keyup.enter="onEnter" -->
@@ -124,7 +124,7 @@
 							<img :src="libs.xuexiaoLogo" alt="" width="28">
 						</div>
 						<div class="right">
-							<p><span>教务部</span>{{i.time}}</p>
+							<p><span>教务处</span>{{i.time}}</p>
 							<p>{{i.title}}</p>
 						</div>
 					</div>
@@ -179,7 +179,8 @@
 					riliLogo:'../libs/rili.svg',
 					guihuatu:'../libs/guihuatu.jpg',
 					xiaoli: '../libs/xiaoli.png',
-					xuexiaoLogo: '../libs/xuexiao.svg'
+					xuexiaoLogo: '../libs/xuexiao.svg',
+					bianjiLogo: '../libs/bianji.svg'
 				},
 				stateID:{ // 弹窗部件状态标识
 					appEat: false,
@@ -440,13 +441,16 @@
 				// console.log('已获取到本地存储并且未加载');
 				this.popupForm.dormitory = localStorage.getItem('domitary')
 				this.popupForm.stuId = localStorage.getItem('stuId')
+
 			} else {
 				// console.log('未获取到本地存储');
 				vueThis.$toast({
-					message: '第一次使用需先编辑个人信息 _(:3」∠)_',
-					position: 'center',
+					message: '第一次使用需先编辑个人信息哦 _(:3」∠)_',
+					position: 'top',
 					duration: 4000
 				});
+				vueThis.popupVisible = true
+
 			}
 
 			// 返回键锁定功能
@@ -487,6 +491,9 @@
 	height: 50px;
 	padding: 10px;
 	font-size: 14px;
+}
+.circle{
+	border-radius: 100%;
 }
 .separator{
 	height: 50px;
@@ -566,14 +573,20 @@
 	margin-top: 0;
 	padding: 10px;
 	height: 90px;
-	background-color: #5387f4;
+	/* background-color: #5387f4; */
 	overflow: hidden;
+	background: linear-gradient(#42a1ec,#0070c9);
 }
 #info-card > .anchor{
 	position: absolute;
 	right: 6px;
 	bottom: 2px;
 	z-index: 1;
+}
+#info-card .edit .circle{
+	width: 50px;
+	height: 50px;
+	background: #f2f2f2;
 }
 #info-card > .rotundity{
 	position: absolute;
@@ -587,10 +600,11 @@
 #info-card > #setting{
 	margin-top: 6px;
 	height: 26px;
-	background-color:#5387f4;
+	width: 20px;
+	/* background-color:#5387f4; */
 	color: #fff;
 	font-size: 12px;
-	border:2px solid #fff;
+	/* border:2px solid #fff; */
 }
 /* #info-card > .rotundity-top{
 	position: absolute;
@@ -607,7 +621,9 @@
 	color: #fff;
 }
 #info-card .left p, #info-card .right p{
-	margin: 1px 0 0 0;
+	margin: 1.5px 0 0 0;
+	letter-spacing:1px;
+	font-weight: 600;
 }
 /* #info-card .left{
 }
@@ -659,6 +675,8 @@
 	background-color: #fff;
 	border-radius: 4px 4px 0 0;
 	letter-spacing: 1.3px;
+	box-shadow: 4px 4px 6px rgba(0,0,0,.1);
+
 }
 #home-tab-nav .title{
 	/* border-bottom: 1px #5387f4 solid; */
@@ -708,11 +726,11 @@
 	border-bottom: 1px solid #eee;
 }
 .card-feed .left{
-	width: 18%;
+	width: 15%;
 }
 .card-feed .right{
 	display: inline;
-	width: 80%;
+	width: 82%;
 }
 .card-feed p{
 	color: #666;

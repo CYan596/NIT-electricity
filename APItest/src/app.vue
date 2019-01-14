@@ -39,6 +39,7 @@
 *{
 	padding: 0;
 	margin: 0;
+	font-family: 'Microsoft YaHei';
 }
 body{
 	/* padding-top: 40px; */
