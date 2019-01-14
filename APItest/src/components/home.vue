@@ -19,7 +19,7 @@
 						姓名：{{stuInfo.stuName}}
 					</p>
 					<p class="width-max">
-						一卡通余额:<span class="card-font-dark">{{stuInfo.OCPbalance}}</span>
+						一卡通余额: <span class="card-font-dark">{{stuInfo.OCPbalance}}</span>
 					</p>
 				</div>
 				<div class="separator"></div>
@@ -28,7 +28,7 @@
 						寝室号：{{dormitory}}
 					</p>
 					<p class="width-max">
-						电费余额: <span class="card-font-dark">{{stuInfo.DEbalance}}</span>
+						电费余额: <span class="card-font-dark">{{stuInfo.DEbalance | capitalize}}</span>
 					</p>
 				</div>
 			</div>
@@ -549,7 +549,7 @@
 .card .card-font-dark{
 	font-weight: bold;
 	/* font-size: 18px; */
-	color: #ff9b16;
+	color: #ffcb16;
 	/* text-shadow: 0px 0px 6px rgba(0,0,0,.1); */
 }
 .card .card-font-s{
