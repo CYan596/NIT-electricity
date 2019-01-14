@@ -458,13 +458,13 @@
 			if (window.history && window.history.pushState) {
 				window.onpopstate = function(event) {
 					// alert("location: " + document.location + ", state: " + JSON.stringify(event.state));
-					counter++
-					history.pushState(null, null, document.URL)
-					for (var prop in vueThis.stateID) {
-						vueThis.stateID[prop] = false
-					}
-					console.log(counter)
-					console.log(vueThis.stateID)
+					// counter++
+					// history.pushState(null, null, document.URL)
+					// for (var prop in vueThis.stateID) {
+					// 	vueThis.stateID[prop] = false
+					// }
+					// console.log(counter)
+					// console.log(vueThis.stateID)
 				};
 			}
 			window.history.pushState('forward', null, '#'); //在IE中必须得有这两行
