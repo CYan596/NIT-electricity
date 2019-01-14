@@ -572,7 +572,7 @@
 #info-card{
 	position: relative;
 	margin-top: 0;
-	padding: 10px;
+	padding: 8px;
 	height: 90px;
 	/* background-color: #5387f4; */
 	overflow: hidden;
@@ -618,7 +618,7 @@
 } */
 #info-card .left, #info-card .right{
 	/* height: 45px; */
-	width: 45%;
+	width: 47%;
 	color: #fff;
 }
 #info-card .left p, #info-card .right p{
