@@ -33,11 +33,11 @@
 				</div>
 			</div>
 
-			<div class="anchor">
+			<!-- <div class="anchor">
 				<img :src="libs.NITLogo" alt="logo" :width="90">
 			</div>
 
-			<div class="rotundity"></div>
+			<div class="rotundity"></div> -->
 
 			<mt-button type="primary"  v-on:click="popup" id="setting">编辑个人信息</mt-button>
 

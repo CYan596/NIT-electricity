@@ -40,7 +40,7 @@ if(queryStep1){
 
 // var OPUN_COD = document.getElementById('OPUN_COD')
 // var OPUN_COD = document.getElementById('BANK_COD')
-var queryQueue = [2015101912,2015101913,2015101914,2015101915,2015101916,2015101917]
+var queryQueue = []
 // BANK_COD.value = '360000'
 // BANK_COD.value = '360100'
 // BANK_COD.value = '05013'
@@ -52,7 +52,7 @@ function step(){
 		setTimeout(step, 15000)
 	}else if(ccbConfig.pageState[0]&&BANK_COD.value!==''){ //在填信息页面且已经填入省份
 		console.log('在填信息页面且已经填入省份')
-		chrome.runtime.sendMessage({flag = 4}, function(response) { //获取background给的ID
+		chrome.runtime.sendMessage({flag :4}, function(response) { //获取background给的ID
 		    COMMInput.value = response
 			btn1.click()
 		});
@@ -68,11 +68,11 @@ function step(){
 
 
 		chrome.runtime.sendMessage({
-			flag:2,
+			flag:3,
 			stuInfo
 		}, function(response) {});
 
-		console.log(stuInfo)
+		// console.log(stuInfo)
 
 		// let balance = document.getElementsByTagName('td')[6].innerText
 		// console.log(document.getElementsByTagName('td')[4].innerText + '的余额为：' + balance)
