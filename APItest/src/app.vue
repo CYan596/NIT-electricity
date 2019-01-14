@@ -72,6 +72,9 @@ mt-switch {
 	-ms-align-items: center;
 	align-items: center;
 }
+a[title='站长统计']{
+	display: none;
+}
 
 
 

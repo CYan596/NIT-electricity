@@ -315,7 +315,7 @@
 
 				}else{
 					console.log('参数不合法')
-					return false;
+					return 1;
 				}
 
 				params.append('method', 'getFee');       //要传给后台的参数值 key/value
