@@ -78,3 +78,4 @@ function randomData(elementId,dataName) {
     var text1 = document.getElementById(elementId);
     text1.innerHTML = dataName[t1Num];    
 }
+
