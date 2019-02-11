@@ -10,6 +10,10 @@
 
 
 		<div class="card" id="info-card">
+
+			<img :src="libs.bianjiLogo" alt="" width="22" v-on:click="popup" id="setting">
+
+
 			<div class="flex-between-center">
 				<div class="left flex-center-column">
 					<p class=" width-max">
@@ -39,7 +43,6 @@
 
 			<div class="rotundity"></div> -->
 
-			<img :src="libs.bianjiLogo" alt="" width="22" v-on:click="popup" id="setting">
 
 			<mt-popup	v-model="popupVisible" popup-transition="popup-fade">
 				<!-- 弹出框内容 -->
@@ -52,6 +55,11 @@
 						<mt-button type="primary"  style="width:75%;height:30px;background-color:#5387f4">确定</mt-button>
 					</div>
 			</mt-popup>
+
+
+			<div class=" mt6 bottom">
+				<span id="NITlogo">南昌工程学院</span>
+			</div>
 
 		</div>
 
@@ -98,7 +106,7 @@
 				<!-- <div class="nav-button-left flex-center  active">校务通知</div>
 				<div class="nav-button-right flex-center">信息聚合</div> -->
 			<!-- 校务通知 -->
-			<div class="title">校务通知</div>
+			<div class="title">公告栏</div>
 			<div class="decorate"></div>
 		</div>
 
@@ -486,6 +494,16 @@
 </script>
 
 <style scoped>
+@font-face {
+	font-family:'xindi';
+	src: url('/../libs/新蒂赵孟頫体.ttf');
+	font-weight: normal;
+	font-style: normal;
+}
+.mt6{
+	margin-top:6px;
+}
+
 .body{
 	/* background-color: green; */
 	height: 50px;
@@ -572,17 +590,30 @@
 #info-card{
 	position: relative;
 	margin-top: 0;
-	padding: 8px;
-	height: 90px;
-	/* background-color: #5387f4; */
+	padding: 8px 8px 0 8px;
+	/* height: 90px; */
+	background-color: #5387f4;
 	overflow: hidden;
-	background: linear-gradient(#42a1ec,#0070c9);
+	/* background: linear-gradient(#42a1ec,#0070c9); */
+}
+#info-card>.bottom{
+	display: flex;
+	justify-content: flex-end;
+	padding:0 16px 1px 0;
+	margin: 8px -8px 0 -8px;
+	background-color: #7ea5fa;
 }
 #info-card > .anchor{
 	position: absolute;
 	right: 6px;
 	bottom: 2px;
 	z-index: 1;
+}
+#info-card  #NITlogo{
+	font-family: 'xindi';
+	font-size: 12px;
+	color: #fff;
+	text-shadow: 2px 2px 3px rgba(0,0,0,.2);
 }
 #info-card .edit .circle{
 	width: 50px;
@@ -599,7 +630,10 @@
 	border-radius: 100%;
 }
 #info-card > #setting{
-	margin-top: 6px;
+	position: absolute;
+	/* margin-top: 6px; */
+	top:30%;
+	right: 2%;;
 	height: 26px;
 	width: 20px;
 	/* background-color:#5387f4; */
@@ -735,14 +769,14 @@
 }
 .card-feed p{
 	color: #666;
-	font-size: 14px;
+	font-size: 15px;
 }
 .card-feed .right p:first-child{
 	text-align: right;
 	margin-bottom: 3px;
 }
 .card-feed .right span{
-	font-size: 14px;
+	font-size: 15px;
 	float: left;
 	color: #333;
 }

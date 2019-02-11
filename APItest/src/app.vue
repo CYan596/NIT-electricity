@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<!-- <headerVue></headerVue> -->
-		<footerVue></footerVue>
+		<!-- <footerVue></footerVue> -->
 
     <router-view></router-view>
 
@@ -25,12 +25,24 @@
 		},
 		//声明函数，属于组件对象的
 		methods:{
+			fullScreen(){
+					var el = document.documentElement;
+					var rfs = el.requestFullScreen || el.webkitRequestFullScreen || el.mozRequestFullScreen || el.msRequestFullscreen;
+							if(typeof rfs != "undefined" && rfs) {
+									rfs.call(el);
+							};
+						return;
+        }
 		},
 		// 声明
 		components:{
 			headerVue:headerVue,
 			footerVue:footerVue,
 			aboutVue:aboutVue
+		},
+		mounted(){
+			// this.fullScreen()
+			// alert(1)
 		}
 	}
 </script>
