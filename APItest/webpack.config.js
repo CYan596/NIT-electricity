@@ -47,11 +47,11 @@ var config= {
                 exclude:/node_modules/,
                 options:{
                     presets:['es2015'],//关键字
-                    plugins:['transform-runtime'],//函数
+                    plugins:['transform-runtime']//函数
                 }
             },{
                 test:/\.vue$/,
-                loader:'vue-loader',//vue-template-compiler是代码上的依赖
+                loader:'vue-loader'//vue-template-compiler是代码上的依赖
             }
         ]
     },
