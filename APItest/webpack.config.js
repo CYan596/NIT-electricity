@@ -30,15 +30,13 @@ var config= {
 		        // - 在 include 和 exclude 中使用绝对路径数组
 		        // - 尽量避免 exclude，更倾向于使用 include
             },{
-				test:/\.(jpg|svg|png|gif)$/,
+				test:/\.(jpg|svg|png|gif|ttf)$/,
 				loader:'url-loader',
 				//顺序是反过来的2!1
 				//[name].[ext]内置提供的，因为本身是先读这个文件
 				options:{
                     limit: 4096,
-                    outputPath: './img',
-                    publicPath: './img',
-                    name: 'img/[name].[hash:7].[ext]'
+                    name: 'libs/[name].[hash:7].[ext]'
 				}
             },{//处理ES6的js
                 test:/\.js$/,

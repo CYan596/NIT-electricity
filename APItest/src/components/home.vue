@@ -496,7 +496,7 @@
 <style scoped>
 @font-face {
 	font-family:'xindi';
-	src: url('/../libs/xindi.ttf');
+	src: url('../../libs/xindi.ttf');
 	font-weight: normal;
 	font-style: normal;
 }
