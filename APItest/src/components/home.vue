@@ -352,7 +352,7 @@
 					  vueThis.stuInfo.DEbalance = DEbalance + '度'
 
 						vueThis.$toast({
-							message: '更新成功 ╭( ･ิ ω･ิ )╯',
+							message: '更新成功',
 							position: 'top',
 							duration: 2500
 						});
@@ -701,7 +701,7 @@
 }
 .home-tab{
 	/* width: 96%; */
-	margin: 0 auto 40px auto;
+	margin: 0 auto 10px auto;
 	/* padding: 6px; */
 	/* border:1px solid #ccc; */
 	/* border-radius: 6px; */
@@ -793,7 +793,7 @@
     transform: scale(1);
   }
   50% {
-    transform: scale(1.2);
+    transform: scale(0.8);
   }
 	100% {
     transform: scale(1);
