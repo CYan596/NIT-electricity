@@ -590,7 +590,7 @@
 #info-card{
 	position: relative;
 	margin-top: 0;
-	padding: 8px 8px 0 8px;
+	padding: 18px 8px 0 8px;
 	/* height: 90px; */
 	background-color: #5387f4;
 	overflow: hidden;
@@ -640,6 +640,11 @@
 	color: #fff;
 	font-size: 12px;
 	/* border:2px solid #fff; */
+	transition: all 0.5s ease;
+}
+#info-card > #setting:active{
+	/* transform: scale(1.2) */
+	animation: change-scale 0.2s ease-in-out forwards;
 }
 /* #info-card > .rotundity-top{
 	position: absolute;
@@ -781,4 +786,17 @@
 	color: #333;
 }
 /*E 信息流卡片 */
+
+/* 动画 */
+@keyframes  change-scale {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+	100% {
+    transform: scale(1);
+  }
+}
 </style>
