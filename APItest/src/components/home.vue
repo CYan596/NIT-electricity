@@ -406,7 +406,7 @@
 						vueThis.stuInfo.stuName = response.data.stuName
 
 						vueThis.$toast({
-							message: '更新成功 ╭( ･ิ ω･ิ )╯',
+							message: '更新成功',
 							position: 'top',
 							duration: 3000
 						});
